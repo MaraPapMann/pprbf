@@ -26,23 +26,18 @@ uint32_t string_to_uint32t(string str){
 }
 
 vector<vector<uint32_t>> rewrite_vector_string_to_int(vector<vector<string>> input_vector){
-
     vector<vector<uint32_t>> new_vector(input_vector.size());
     for (int i = 0; i < input_vector.size(); i++)
     {
-
         vector<string> cur_vec = input_vector[i];
         vector<uint32_t> temp_vec(input_vector[0].size());
         for (int j = 0; j < input_vector[0].size(); j++)
         {
-
             string data = cur_vec[j];
             uint32_t temp_data = string_to_uint32t(data);
             temp_vec[j] = temp_data;
-
         }
         new_vector[i] = temp_vec;
-        
     }
     return new_vector;
     
@@ -56,7 +51,7 @@ vector<vector<uint32_t>> CSVReader::getData()
 {
 	ifstream file(fileName);
  
-	vector<vector<string> > dataList;
+	vector<vector<string>> dataList;
  
 	string line = "";
 	// Iterate through each line and split the content using delimeter
