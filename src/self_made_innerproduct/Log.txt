@@ -23,3 +23,6 @@ Solution:
                 e.g. (0, 1, 2), (3, 4, 5), ..., (n-3, n-2, n-1), nvals_out = dimension;
                 Use for loop;
             c.  
+
+20190610
+    1. s_x_vec: 32 wires, 99 nvals. Each nval is an original number, each wire stands for a pos

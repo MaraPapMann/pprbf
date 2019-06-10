@@ -30,38 +30,27 @@ namespace fs = std::filesystem;
 
 
 share* BuildInnerProductCircuit(share *s_x, share *s_y, uint32_t num, ArithmeticCircuit *ac, uint32_t dim) {
+	// pairwise multiplication of all input values
+	s_x = ac->PutMULGate(s_x, s_y); // Now each nval is a value, need to be transposed so that each wire stands for one value.
+	s_x = ac->PutSplitterGate(s_x); // Transposed. 32 rows, 99 cols.
 
-		// pairwise multiplication of all input values
-		s_x = ac->PutMULGate(s_x, s_y);
-		
-		for (int i = 0; i < num/dim; i++)
+	for(uint32_t i=0; i< num/dim; i++)
+	{
+		uint32_t idx = i*dim;
+		for(uint32_t j=1; j<dim; j++)
 		{
-			int idx = i*dim;
-			uint32_t posids[dim] = {idx, idx+1, idx+2};
-			share* sub_s_x = ac->PutSubsetGate(s_x, posids, dim);  // Separate the SIMD according to dimension
-			sub_s_x = ac->PutSplitterGate(sub_s_x);
-			for (int j = 1; j < 10; j++)
-			{
-				sub_s_x->set_wire_id(0, ac->PutADDGate(sub_s_x->get_wire_id(0), sub_s_x->get_wire_id(j)));  // Summing up multiplication
-			}
-			sub_s_x->set_bitlength(1);  // Discarding wires except for the summation
-			s_x->set_wire_id(i, sub_s_x->get_wire_id(0));  // Put the dot product to the right position of s_x
+			s_x->set_wire_id(idx, ac->PutADDGate(s_x->get_wire_id(idx), s_x->get_wire_id(idx+j))); // Put the summation result into the right pos
 		}
-		// split SIMD gate to separate wires (size many)
-		//s_x = ac->PutSplitterGate(s_x);
+	}
 
-		// add up the individual multiplication results and store result on wire 0
-		// in arithmetic sharing ADD is for free, and does not add circuit depth, thus simple sequential adding
-		/**
-		for (i = 1; i < num; i++) {
-				s_x->set_wire_id(0, ac->PutADDGate(s_x->get_wire_id(0), s_x->get_wire_id(i)));
-		}
-		*/
+	for(uint32_t i=0; i<num/dim; i++)
+	{
+		s_x->set_wire_id(i, s_x->get_wire_id(i*dim));
+	}
 
-		// discard all wires, except the addition result
-		s_x->set_bitlength(num/dim);	
+	s_x->set_bitlength(num/dim);
 
-		return s_x;
+	return s_x;
 }
 
 // For loop summation; Combination gate to tranpose; Subset gate to extract the needed values.
@@ -85,86 +74,122 @@ int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t 
 		cout<<num << ", " << dim << endl;
 		cout << num / dim <<endl;
 		cout << "check" << endl;
+	
+	cout<<"xvals"<<endl;
+	for (int i = 0; i < xvals.size(); i++)
+	{
+		cout<<xvals[i]<<", ";
+	}
+
+	cout<<"yvals"<<endl;
+	for (int i = 0; i < yvals.size(); i++)
+	{
+		cout<<yvals[i]<<", ";
+	}
+	
 
     s_x_vec = circ->PutSIMDINGate(num, xvals.data(), 32, SERVER);
-	  s_y_vec = circ->PutSIMDINGate(num, yvals.data(), 32, CLIENT);
-
+	s_y_vec = circ->PutSIMDINGate(num, yvals.data(), 32, CLIENT);		
 
     s_out = BuildInnerProductCircuit(s_x_vec, s_y_vec, num,
 			(ArithmeticCircuit*) circ, dim);
 
-		
+	s_out = circ -> PutOUTGate(s_out, ALL);
 
-		s_out = circ -> PutOUTGate(s_out, ALL);
+	party -> ExecCircuit();
 
-		party -> ExecCircuit();
+	// Output an array
+	uint32_t out_bitlen, out_nvals, *out_vals;
+	s_out -> get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
 
-		
-		// Output an array
-		uint32_t out_bitlen, out_nvals, *out_vals;
-		s_out -> get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
+	uint32_t v_res[num/dim];
 
-		uint32_t v_sum = 0;
-
-		for (uint32_t i = 0; i < xvals.size(); i++)
+	for (uint32_t i = 0; i < num/dim; i++)
+	{
+		int idx = i*dim;
+		int temp_sum = 0;
+		for(int j=0; j<dim; j++)
 		{
-				uint32_t x = xvals[i];
-				uint32_t y = yvals[i];
-				v_sum += x*y;
+			temp_sum = temp_sum + (xvals[idx+j] * yvals[idx+j]);
 		}
-		
-		std::cout << "\nCircuit Result: " << out_vals[0] << endl;
-
-		/**
-		for (int i=0; i<(sizeof(out_vals)/sizeof(*out_vals)); i++)
-		{
-			cout << out_vals[i] << ", ";
-		}
-		*/
-		cout << endl;
-		std::cout << "\nVerification Result: " << v_sum << std::endl;
-
-		delete s_x_vec;
-		delete s_y_vec;
-		delete party;
-
-		return 0;
-        }
+		v_res[i] = temp_sum;
+	}
 	
+	std::cout << "\nCircuit Result: " << endl;
+	for(int i=0; i<num/dim; i++)
+	{
+		if (i==sizeof(out_vals)-1)
+		{
+			cout<<out_vals[i]<<endl;
+		}else
+		{
+			cout<<out_vals[i]<<", ";
+		}
+	}
+	cout<<"bitlength: "<<out_bitlen;
+	cout<<"nvals: "<<out_nvals;
+	cout<<"size: "<<sizeof(out_vals);
+
+	/**
+	for (int i=0; i<(sizeof(out_vals)/sizeof(*out_vals)); i++)
+	{
+		cout << out_vals[i] << ", ";
+	}
+	*/
+	cout << endl;
+	std::cout << "\nVerification Result: " << std::endl;
+	for(int i=0; i<num/dim; i++)
+	{
+		if (i==num/dim-1)
+		{
+			cout<<v_res[i]<<endl;
+		}else
+		{
+			cout<<v_res[i]<<", ";
+		}
+	}
+
+	delete s_x_vec;
+	delete s_y_vec;
+	delete party;
+
+	return 0;
+}
+
 int32_t read_test_options(int32_t* argcp, char*** argvp, e_role* role,
-		uint32_t* bitlen, uint32_t* nvals, uint32_t* secparam, std::string* address,
-		uint32_t* port, int32_t* test_op, string* dir) {
+	uint32_t* bitlen, uint32_t* nvals, uint32_t* secparam, std::string* address,
+	uint32_t* port, int32_t* test_op, string* dir) 
+	{
+	uint32_t int_role = 0, int_port = 0;
 
-		uint32_t int_role = 0, int_port = 0;
+	parsing_ctx options[] =
+			{ { (void*) &int_role, T_NUM, "r", "Role: 0/1", true, false },
+				{ (void*) nvals, T_NUM, "n",	"Number of elements for inner product", false, false },
+				{	(void*) bitlen, T_NUM, "b", "Bit-length, default 32", false, false },
+				{ (void*) secparam, T_NUM, "s", "Symmetric Security Bits, default: 128", false, false },
+				{	(void*) address, T_STR, "a", "IP-address, default: localhost", false, false },
+				{	(void*) &int_port, T_NUM, "p", "Port, default: 7766", false, false },
+				{ (void*) test_op, T_NUM, "t", "Single test (leave out for all operations), default: off",
+					false, false }, 
+				{	(void*) dir, T_STR, "d", "Directory containing .csv files", false, false }
+				};
 
-		parsing_ctx options[] =
-				{ { (void*) &int_role, T_NUM, "r", "Role: 0/1", true, false },
-					{ (void*) nvals, T_NUM, "n",	"Number of elements for inner product", false, false },
-					{	(void*) bitlen, T_NUM, "b", "Bit-length, default 32", false, false },
-					{ (void*) secparam, T_NUM, "s", "Symmetric Security Bits, default: 128", false, false },
-					{	(void*) address, T_STR, "a", "IP-address, default: localhost", false, false },
-					{	(void*) &int_port, T_NUM, "p", "Port, default: 7766", false, false },
-					{ (void*) test_op, T_NUM, "t", "Single test (leave out for all operations), default: off",
-						false, false }, 
-					{	(void*) dir, T_STR, "d", "Directory containing .csv files", false, false }
-					};
+	if (!parse_options(argcp, argvp, options,
+			sizeof(options) / sizeof(parsing_ctx))) {
+		print_usage(*argvp[0], options, sizeof(options) / sizeof(parsing_ctx));
+		std::cout << "Exiting" << std::endl;
+		exit(0);
+	}
 
-		if (!parse_options(argcp, argvp, options,
-				sizeof(options) / sizeof(parsing_ctx))) {
-			print_usage(*argvp[0], options, sizeof(options) / sizeof(parsing_ctx));
-			std::cout << "Exiting" << std::endl;
-			exit(0);
-		}
+	assert(int_role < 2);
+	*role = (e_role) int_role;
 
-		assert(int_role < 2);
-		*role = (e_role) int_role;
+	if (int_port != 0) {
+		assert(int_port < 1 << (sizeof(uint32_t) * 8));
+		*port = (uint32_t) int_port;
+	}
 
-		if (int_port != 0) {
-			assert(int_port < 1 << (sizeof(uint32_t) * 8));
-			*port = (uint32_t) int_port;
-		}
-
-		return 0;
+	return 0;
 }
 
 /**
