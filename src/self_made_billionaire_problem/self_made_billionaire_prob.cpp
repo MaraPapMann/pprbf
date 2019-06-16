@@ -29,35 +29,42 @@ uint32_t test_billionaire_prob_circuit(e_role role){
     uint16_t port = 6677;  // Listening port
     seclvl seclvl = LT;  // Long term 
     uint32_t bitlen = 32;  // Maximum bitlen
-    uint32_t nthreads = 2;  // Number of threads
+    uint32_t nthreads = 1;  // Number of threads
     e_mt_gen_alg mg_algo = MT_OT;
     uint32_t maxgates = 4000000;  // Maximum gates
-    e_sharing sharing = S_YAO;
+    e_sharing sharing = S_BOOL;
 
     // Setup
 		ABYParty* party = new ABYParty(role , (char*) address.c_str(), port , seclvl , bitlen , nthreads, MT_OT, maxgates);
 		vector <Sharing*>& sharings = party ->GetSharings ();  // Vector of sharings is obtained.
-		Circuit* circ = sharings[sharing]->GetCircuitBuildRoutine ();  // Circuit is obtained according to type: A / B / Y
+		BooleanCircuit* circ = (BooleanCircuit*)sharings[sharing]->GetCircuitBuildRoutine ();  // Circuit is obtained according to type: A / B / Y
 
-    // Fake Money
-    srand(666);
-    uint32_t chen_money = rand();
-    uint32_t huajie_money = rand();
+    // Fake Money Share
+    srand(8399590);
+    uint32_t chen_money = 2;
+    uint32_t huajie_money = 7;
+		cout << chen_money << endl;
+		cout << huajie_money << endl;
 
     // Build up shares
     share *s_chen_money, *s_huajie_money, *s_out;
 
     // Put in gate according to role
-    if(role == SERVER) {
-		s_chen_money = circ->PutDummyINGate(bitlen);
-		s_huajie_money = circ->PutINGate(huajie_money, bitlen, SERVER);
+    uint32_t r1 = rand() % 10;
+    uint32_t r2 = rand() % 10;
+		if(role == SERVER) {
+			cout<<r1<<" "<<(huajie_money^r2)<<endl;
+			s_chen_money = circ->PutSharedINGate(r1, bitlen);
+			s_huajie_money = circ->PutSharedINGate(huajie_money^r2, bitlen);
 	} else { //role == CLIENT
-		s_chen_money = circ->PutINGate(chen_money, bitlen, CLIENT);
-		s_huajie_money = circ->PutDummyINGate(bitlen);
+			cout<<r2<<" "<<(chen_money^r1)<<endl;
+			s_chen_money = circ->PutSharedINGate(chen_money^r1, bitlen);
+			s_huajie_money = circ->PutSharedINGate(r2, bitlen);
 	}
+	
 
     // Get 
-    s_out = circ ->PutGTGate(s_chen_money , s_huajie_money);  // s_chen_money > s_huajie_money ?
+    s_out = circ ->PutADDGate(s_chen_money , s_huajie_money);  // s_chen_money > s_huajie_money ?
 
     s_out = circ->PutOUTGate(s_out, ALL);
 
@@ -66,13 +73,14 @@ uint32_t test_billionaire_prob_circuit(e_role role){
 
     uint32_t output = s_out->get_clear_value<uint32_t>();
 
-	std::cout << "Testing Billionaire's Problem in " << get_sharing_name(sharing) << " sharing: " << std::endl;
+	/**std::cout << "Testing Billionaire's Problem in " << get_sharing_name(sharing) << " sharing: " << std::endl;
 	std::cout << "\nChen Money:\t" << chen_money;
 	std::cout << "\nHuajie Money:\t" << huajie_money;
 	std::cout << "\nCircuit Result:\t" << (output ? "Chen" : "Huajie");
 	std::cout << "\nVerify Result: \t" << ((chen_money > huajie_money) ? "Chen" : "Huajie")
 				<< "\n";
-
+	*/
+	cout << output << endl;
 	delete party;
 	return output;
 }

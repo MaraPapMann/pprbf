@@ -17,6 +17,7 @@ if(ABY_FOUND)
 elseif (NOT ABY_FOUND AND NOT TARGET ABY::aby)
 	message("ABY was not found: add ABY subdirectory")
  	add_subdirectory(extern/ABY)
+
 endif()
-add_executable(self_made_innerproduct self_made_innerproduct.cpp csv_parser.cpp)
+add_executable(self_made_innerproduct self_made_innerproduct.cpp csv_parser.cpp generate_simulated_data.cpp vector_process.cpp)
 target_link_libraries(self_made_innerproduct ABY::aby ENCRYPTO_utils::encrypto_utils)

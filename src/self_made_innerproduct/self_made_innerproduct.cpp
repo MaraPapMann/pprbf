@@ -13,6 +13,7 @@
 #include "../ABY/src/abycore/aby/abyparty.h"
 
 // ABY Circuit and Sharing
+#include "../ABY/src/abycore/ABY_utils/ABYconstants.h"
 #include "../ABY/src/abycore/circuit/booleancircuits.h"
 #include "../ABY/src/abycore/circuit/arithmeticcircuits.h"
 #include "../ABY/src/abycore/circuit/circuit.h"
@@ -25,6 +26,9 @@
 #include "csv_parser.h"
 using namespace std;
 
+#include "generate_simulated_data.h"
+#include "vector_process.h"
+#include <vector>
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -70,23 +74,6 @@ int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t 
 
     share *s_x_vec, *s_y_vec, *s_out;
     uint32_t num = xvals.size();
-		cout << "Hi" << endl;
-		cout<<num << ", " << dim << endl;
-		cout << num / dim <<endl;
-		cout << "check" << endl;
-	
-	cout<<"xvals"<<endl;
-	for (int i = 0; i < xvals.size(); i++)
-	{
-		cout<<xvals[i]<<", ";
-	}
-
-	cout<<"yvals"<<endl;
-	for (int i = 0; i < yvals.size(); i++)
-	{
-		cout<<yvals[i]<<", ";
-	}
-	
 
     s_x_vec = circ->PutSIMDINGate(num, xvals.data(), 32, SERVER);
 	s_y_vec = circ->PutSIMDINGate(num, yvals.data(), 32, CLIENT);		
@@ -126,9 +113,6 @@ int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t 
 			cout<<out_vals[i]<<", ";
 		}
 	}
-	cout<<"bitlength: "<<out_bitlen;
-	cout<<"nvals: "<<out_nvals;
-	cout<<"size: "<<sizeof(out_vals);
 
 	/**
 	for (int i=0; i<(sizeof(out_vals)/sizeof(*out_vals)); i++)
@@ -193,117 +177,6 @@ int32_t read_test_options(int32_t* argcp, char*** argvp, e_role* role,
 }
 
 /**
- * I: Two CSV file
- * TODO: Parse them as 2d vector: DONE
- * i row, j col in 1st .csv, k row, j col in 2nd .csv. (Same dimension in each row)
- * TODO: Generate 1st aggregated vector of length j*k*i: DONE
- * TODO: Generate 2nd aggregated vecotr of length j*k*i: DONE
- * TODO: Construct 2 long vector containing all files and informations needed for the innerproduct: DONE
- * TODO: Put two aggregated vector into SIMD Gate:
- * TODO: Get innerproduct of the SIMD Shares:
- * TODO: Transpose the SIMD Shares:
- * TODO: Split the SIMD Shares according to j:
- * TODO: Put Out Gate:
- */
-
-// Aggregate the first vector
-vector<uint32_t> aggregate_vector_1st(vector<vector<uint32_t>> vec_a, vector<vector<uint32_t>> vec_b){
-		int i = vec_a.size();
-		int j = vec_a[0].size();
-		int k = vec_b.size();
-		vector<uint32_t> vec_1st;
-		for (vector<uint32_t> vec:vec_a)
-		{
-			for (int l = 0; l < k; l++)
-			{
-				vec_1st.insert(vec_1st.end(), vec.begin(), vec.end());
-			}
-		}
-		return vec_1st;
-}
-
-// Aggregate the second vector
-vector<uint32_t> aggregate_vector_2nd(vector<vector<uint32_t>> vec_a, vector<vector<uint32_t>> vec_b){
-		int i = vec_a.size();
-		int j = vec_a[0].size();
-		int k = vec_b.size();
-		vector<uint32_t> vec_2nd;
-		for (int l = 0; l < i; l++)
-		{
-			for (vector<uint32_t> vec:vec_b)
-			{
-				vec_2nd.insert(vec_2nd.end(), vec.begin(), vec.end());
-			}
-		}
-		return vec_2nd;
-}
-
-// Get all files' paths in directory as vector
-vector<string> get_all_file_in_dir(string path){
-	vector<string> file_vec;
-  for (const auto & entry : fs::directory_iterator(path))
-	{
-      file_vec.push_back(entry.path());
-	}
-	return file_vec;
-}
-
-// Record the number of rows for next step
-/**
-vector<int> getNumberOfRowsInFiles(vector<string> files){
-		vector<int> vec;
-		for(string file:files){
-			CSVReader r(file);
-			vec.push_back(r.getData().size());
-		}
-		return vec;
-}
-*/
-
-// Only the dimension of vector matters in this context, do not really need to document the point of each segmentation
-
-// Create the first long vector
-vector<uint32_t> generate_1st_long_vector_for_all_files_in_dir(vector<string> file_vec){
-		vector<uint32_t> vec_to_return;
-		for (int i = 0; i < file_vec.size()-1; i++)
-		{
-			CSVReader x_csv(file_vec[i]);
-			vector<vector<uint32_t>> vec_a = x_csv.getData();
-			for (int j = i+1; j < file_vec.size(); j++)
-			{
-				CSVReader y_csv(file_vec[j]);
-				vector<vector<uint32_t>> vec_b = y_csv.getData();
-				vector<uint32_t> temp_vec = aggregate_vector_1st(vec_a, vec_b);
-				vec_to_return.insert(vec_to_return.end(), temp_vec.begin(), temp_vec.end());
-			}
-		}
-		return vec_to_return;
-}
-
-// Create the second long vector
-vector<uint32_t> generate_2nd_long_vector_for_all_files_in_dir(vector<string> file_vec){
-		vector<uint32_t> vec_to_return;
-		for (int i = 0; i < file_vec.size()-1; i++)
-		{
-			CSVReader x_csv(file_vec[i]);
-			vector<vector<uint32_t>> vec_a = x_csv.getData();
-			for (int j = i+1; j < file_vec.size(); j++)
-			{
-				CSVReader y_csv(file_vec[j]);
-				vector<vector<uint32_t>> vec_b = y_csv.getData();
-				vector<uint32_t> temp_vec = aggregate_vector_2nd(vec_a, vec_b);
-				vec_to_return.insert(vec_to_return.end(), temp_vec.begin(), temp_vec.end());
-			}
-		}
-		return vec_to_return;
-}
-
-// Get dimension of vector
-int get_dimension_of_2dvector(vector<vector<uint32_t>> vec){
-	return vec[0].size();
-}
-
-/**
  * Get names of all files in one directory as list
 
 int main(int argc, char** argv){
@@ -326,27 +199,37 @@ int main(int argc, char** argv){
 
 int main(int argc, char** argv) {
 
-		e_role role;
-		uint32_t bitlen = 16, nvals = 128, secparam = 128, nthreads = 1;
-		uint32_t port = 7766;
-		std::string address = "127.0.0.1";
-		int32_t test_op = -1;
-		e_mt_gen_alg mt_alg = MT_OT;
-		string dir = "../csv_files/";
+	e_role role;
+	uint32_t bitlen = 16, nvals = 128, secparam = 128, nthreads = 1;
+	uint32_t port = 7766;
+	std::string address = "127.0.0.1";
+	int32_t test_op = -1;
+	e_mt_gen_alg mt_alg = MT_OT;
+	
+	string dir = "../csv_files/";
 
-		read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
+	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
 
-		seclvl seclvl = get_sec_lvl(secparam);
+	seclvl seclvl = get_sec_lvl(secparam);
 
-		vector<uint32_t> x_vec, y_vec;  // can use int[] array
-		vector<string> file_vec = get_all_file_in_dir(dir);  // Get all file in a directory
-		CSVReader csv(file_vec[0]);
-		uint32_t dim = get_dimension_of_2dvector(csv.getData());
-		x_vec = generate_1st_long_vector_for_all_files_in_dir(file_vec);
-		y_vec = generate_2nd_long_vector_for_all_files_in_dir(file_vec);
+	vector<uint32_t> x_vec, y_vec;  // can use int[] array
+	/** Read csv file part
+	 * vector<string> file_vec = get_all_file_in_dir(dir);  // Get all file in a directory
+	 * CSVReader csv(file_vec[0]);
+	uint32_t dim = get_dimension_of_2dvector(csv.getData());
+	x_vec = generate_1st_long_vector_for_all_files_in_dir(file_vec);
+	y_vec = generate_2nd_long_vector_for_all_files_in_dir(file_vec);
+	*/
+	uint32_t dim = 150;
+	uint32_t num_hpt = 20;
+	int num_vec[num_hpt] = {7, 5, 3, 6, 2, 8, 3, 6, 3, 8, 9, 3, 1, 7, 3, 8, 4, 7, 9, 4};
+	vector<vector<vector<uint32_t>>> simulated_data = generate_simulated_data(dim, num_hpt, num_vec);
+	x_vec = generate_1st_long_vec(simulated_data);
+	y_vec = generate_2nd_long_vec(simulated_data);
+	cout<<"Size of the long vector"<<x_vec.size()<<endl;
 
-		// call inner product routine. set size with cmd-parameter -n <size>
-		inner_product_circuit(role, address, port, seclvl, 1, 32, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
+	// call inner product routine. set size with cmd-parameter -n <size>
+	inner_product_circuit(role, address, port, seclvl, 1, 32, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
 
-		return 0;
+	return 0;
 }

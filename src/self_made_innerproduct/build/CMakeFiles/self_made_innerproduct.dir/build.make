@@ -83,16 +83,46 @@ CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/csv_parser.cpp -o CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.s
 
+CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o: CMakeFiles/self_made_innerproduct.dir/flags.make
+CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o: ../generate_simulated_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/self_made_innerproduct/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o -c /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/generate_simulated_data.cpp
+
+CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/generate_simulated_data.cpp > CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.i
+
+CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/generate_simulated_data.cpp -o CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.s
+
+CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o: CMakeFiles/self_made_innerproduct.dir/flags.make
+CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o: ../vector_process.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/self_made_innerproduct/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o -c /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/vector_process.cpp
+
+CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/vector_process.cpp > CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.i
+
+CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_made_innerproduct/vector_process.cpp -o CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.s
+
 # Object files for target self_made_innerproduct
 self_made_innerproduct_OBJECTS = \
 "CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o" \
-"CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.o"
+"CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.o" \
+"CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o" \
+"CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o"
 
 # External object files for target self_made_innerproduct
 self_made_innerproduct_EXTERNAL_OBJECTS =
 
 self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o
 self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.o
+self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o
+self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o
 self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/build.make
 self_made_innerproduct: /usr/local/lib/libaby.a
 self_made_innerproduct: /usr/local/lib/libencrypto_utils.a
@@ -108,7 +138,7 @@ self_made_innerproduct: /usr/local/lib/libgmpxx.so
 self_made_innerproduct: /usr/lib/x86_64-linux-gnu/libcrypto.so
 self_made_innerproduct: /usr/local/lib/libgmp.so
 self_made_innerproduct: CMakeFiles/self_made_innerproduct.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chen/Git_repositories/pprbf/src/self_made_innerproduct/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable self_made_innerproduct"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chen/Git_repositories/pprbf/src/self_made_innerproduct/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable self_made_innerproduct"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/self_made_innerproduct.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

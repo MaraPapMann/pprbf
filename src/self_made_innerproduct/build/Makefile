@@ -150,6 +150,33 @@ csv_parser.cpp.s:
 	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.s
 .PHONY : csv_parser.cpp.s
 
+generate_simulated_data.o: generate_simulated_data.cpp.o
+
+.PHONY : generate_simulated_data.o
+
+# target to build an object file
+generate_simulated_data.cpp.o:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o
+.PHONY : generate_simulated_data.cpp.o
+
+generate_simulated_data.i: generate_simulated_data.cpp.i
+
+.PHONY : generate_simulated_data.i
+
+# target to preprocess a source file
+generate_simulated_data.cpp.i:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.i
+.PHONY : generate_simulated_data.cpp.i
+
+generate_simulated_data.s: generate_simulated_data.cpp.s
+
+.PHONY : generate_simulated_data.s
+
+# target to generate assembly for a file
+generate_simulated_data.cpp.s:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.s
+.PHONY : generate_simulated_data.cpp.s
+
 self_made_innerproduct.o: self_made_innerproduct.cpp.o
 
 .PHONY : self_made_innerproduct.o
@@ -177,6 +204,33 @@ self_made_innerproduct.cpp.s:
 	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.s
 .PHONY : self_made_innerproduct.cpp.s
 
+vector_process.o: vector_process.cpp.o
+
+.PHONY : vector_process.o
+
+# target to build an object file
+vector_process.cpp.o:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.o
+.PHONY : vector_process.cpp.o
+
+vector_process.i: vector_process.cpp.i
+
+.PHONY : vector_process.i
+
+# target to preprocess a source file
+vector_process.cpp.i:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.i
+.PHONY : vector_process.cpp.i
+
+vector_process.s: vector_process.cpp.s
+
+.PHONY : vector_process.s
+
+# target to generate assembly for a file
+vector_process.cpp.s:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/vector_process.cpp.s
+.PHONY : vector_process.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +243,15 @@ help:
 	@echo "... csv_parser.o"
 	@echo "... csv_parser.i"
 	@echo "... csv_parser.s"
+	@echo "... generate_simulated_data.o"
+	@echo "... generate_simulated_data.i"
+	@echo "... generate_simulated_data.s"
 	@echo "... self_made_innerproduct.o"
 	@echo "... self_made_innerproduct.i"
 	@echo "... self_made_innerproduct.s"
+	@echo "... vector_process.o"
+	@echo "... vector_process.i"
+	@echo "... vector_process.s"
 .PHONY : help
 
 
