@@ -48,12 +48,25 @@ vector<uint32_t> aggregate_vector_2nd(vector<vector<uint32_t>> vec_a, vector<vec
 }
 
 // Get all files' paths in directory as vector
-vector<string> get_all_file_in_dir(string path){
+vector<string> get_all_file_in_dir(string path, e_role role){
 	vector<string> file_vec;
   for (const auto & entry : fs::directory_iterator(path))
 	{
-      file_vec.push_back(entry.path());
+		string cur_file = entry.path();
+		if (role == SERVER)
+		{
+			if (cur_file.find("split_1") != string::npos){
+				file_vec.push_back(cur_file);
+			}
+		}
+		else // role == CLIENT
+		{
+			if (cur_file.find("split_2") != string::npos){
+				file_vec.push_back(cur_file);
+			}
+		}
 	}
+	sort(file_vec.begin(), file_vec.end());
 	return file_vec;
 }
 
@@ -74,11 +87,11 @@ vector<int> getNumberOfRowsInFiles(vector<string> files){
 // Create the first long vector
 vector<uint32_t> generate_1st_long_vector_for_all_files_in_dir(vector<string> file_vec){
 		vector<uint32_t> vec_to_return;
-		for (int i = 0; i < file_vec.size()-1; i++)
+		for (int i = 0; i < file_vec.size(); i++)
 		{
 			CSVReader x_csv(file_vec[i]);
 			vector<vector<uint32_t>> vec_a = x_csv.getData();
-			for (int j = i+1; j < file_vec.size(); j++)
+			for (int j = i; j < file_vec.size(); j++)
 			{
 				CSVReader y_csv(file_vec[j]);
 				vector<vector<uint32_t>> vec_b = y_csv.getData();
@@ -92,11 +105,11 @@ vector<uint32_t> generate_1st_long_vector_for_all_files_in_dir(vector<string> fi
 // Create the second long vector
 vector<uint32_t> generate_2nd_long_vector_for_all_files_in_dir(vector<string> file_vec){
 		vector<uint32_t> vec_to_return;
-		for (int i = 0; i < file_vec.size()-1; i++)
+		for (int i = 0; i < file_vec.size(); i++)
 		{
 			CSVReader x_csv(file_vec[i]);
 			vector<vector<uint32_t>> vec_a = x_csv.getData();
-			for (int j = i+1; j < file_vec.size(); j++)
+			for (int j = i; j < file_vec.size(); j++)
 			{
 				CSVReader y_csv(file_vec[j]);
 				vector<vector<uint32_t>> vec_b = y_csv.getData();

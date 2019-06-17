@@ -3,6 +3,7 @@ using namespace std;
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
 #include <filesystem>
+#include "../ABY/src/abycore/aby/abyparty.h"
 namespace fs = std::filesystem;
 
 // Aggregate the first vector
@@ -12,9 +13,9 @@ vector<uint32_t> aggregate_vector_1st(vector<vector<uint32_t>> vec_a, vector<vec
 vector<uint32_t> aggregate_vector_2nd(vector<vector<uint32_t>> vec_a, vector<vector<uint32_t>> vec_b);
 
 // Get all files' paths in directory as vector
-vector<string> get_all_file_in_dir(string path);
+vector<string> get_all_file_in_dir(string path, e_role role);
 
-// Record the number of rows for next step
+// Record the number of rows for next step#include 
 /**
 vector<int> getNumberOfRowsInFiles(vector<string> files){
 		vector<int> vec;

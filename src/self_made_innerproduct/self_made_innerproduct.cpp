@@ -36,7 +36,7 @@ namespace fs = std::filesystem;
 share* BuildInnerProductCircuit(share *s_x, share *s_y, uint32_t num, ArithmeticCircuit *ac, uint32_t dim) {
 	// pairwise multiplication of all input values
 	s_x = ac->PutMULGate(s_x, s_y); // Now each nval is a value, need to be transposed so that each wire stands for one value.
-	s_x = ac->PutSplitterGate(s_x); // Transposed. 32 rows, 99 cols.
+	s_x = ac->PutSplitterGate(s_x); // Transposed.
 
 	for(uint32_t i=0; i< num/dim; i++)
 	{
@@ -75,8 +75,8 @@ int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t 
     share *s_x_vec, *s_y_vec, *s_out;
     uint32_t num = xvals.size();
 
-    s_x_vec = circ->PutSIMDINGate(num, xvals.data(), 32, SERVER);
-	s_y_vec = circ->PutSIMDINGate(num, yvals.data(), 32, CLIENT);		
+    s_x_vec = circ->PutSharedSIMDINGate(num, xvals.data(), bitlen);
+	s_y_vec = circ->PutSharedSIMDINGate(num, yvals.data(), bitlen);		
 
     s_out = BuildInnerProductCircuit(s_x_vec, s_y_vec, num,
 			(ArithmeticCircuit*) circ, dim);
@@ -200,26 +200,28 @@ int main(int argc, char** argv){
 int main(int argc, char** argv) {
 
 	e_role role;
-	uint32_t bitlen = 16, nvals = 128, secparam = 128, nthreads = 1;
+	uint32_t bitlen = 8, nvals = 128, secparam = 128, nthreads = 1;
 	uint32_t port = 7766;
 	std::string address = "127.0.0.1";
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
 	
-	string dir = "../csv_files/";
+	string dir = "../../splitFile/csv_dir/";
 
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
 
 	seclvl seclvl = get_sec_lvl(secparam);
 
 	vector<uint32_t> x_vec, y_vec;  // can use int[] array
-	/** Read csv file part
-	 * vector<string> file_vec = get_all_file_in_dir(dir);  // Get all file in a directory
-	 * CSVReader csv(file_vec[0]);
+	// Read csv file part
+	vector<string> file_vec = get_all_file_in_dir(dir, role);  // Get all file in a directory by role
+	CSVReader csv(file_vec[0]);
 	uint32_t dim = get_dimension_of_2dvector(csv.getData());
 	x_vec = generate_1st_long_vector_for_all_files_in_dir(file_vec);
 	y_vec = generate_2nd_long_vector_for_all_files_in_dir(file_vec);
-	*/
+
+
+	/**
 	uint32_t dim = 150;
 	uint32_t num_hpt = 20;
 	int num_vec[num_hpt] = {7, 5, 3, 6, 2, 8, 3, 6, 3, 8, 9, 3, 1, 7, 3, 8, 4, 7, 9, 4};
@@ -227,9 +229,10 @@ int main(int argc, char** argv) {
 	x_vec = generate_1st_long_vec(simulated_data);
 	y_vec = generate_2nd_long_vec(simulated_data);
 	cout<<"Size of the long vector"<<x_vec.size()<<endl;
+	*/
 
 	// call inner product routine. set size with cmd-parameter -n <size>
-	inner_product_circuit(role, address, port, seclvl, 1, 32, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
+	inner_product_circuit(role, address, port, seclvl, 1, bitlen, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
 
 	return 0;
 }

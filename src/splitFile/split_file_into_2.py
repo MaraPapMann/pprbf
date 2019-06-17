@@ -33,9 +33,9 @@ def split_file(in_file, bit_length):
                 cur_vector_2 = []
                 for j in range(shape[1]):
                     cur_val = in_file.iloc[i, j]
-                    cur_random_val = np.random.randint(0, bit_length + 1)  # Upper bound need to + 1
+                    cur_random_val = np.random.randint(0, 2**bit_length + 1)  # Upper bound need to + 1
                     cur_vector_1.append(cur_random_val)
-                    cur_vector_2.append(abs(cur_val + bit_length - cur_random_val))
+                    cur_vector_2.append(abs(cur_val + 2**bit_length - cur_random_val))
                 lst_to_return_1.append(cur_vector_1)
                 lst_to_return_2.append(cur_vector_2)
             return lst_to_return_1, lst_to_return_2
