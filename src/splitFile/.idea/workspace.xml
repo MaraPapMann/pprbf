@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52079f90-c463-479c-9d0c-c3aa6b7b858c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../ABY" beforeDir="false" afterPath="$PROJECT_DIR$/../ABY" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/a_encoded_test_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/a_encoded_test_seq.txt_split_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/a_encoded_test_seq.txt_split_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/b_encoded_test_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/b_encoded_test_seq.txt_split_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/probe/b_encoded_test_seq.txt_split_2.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
