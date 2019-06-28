@@ -50,7 +50,7 @@ vector<uint32_t> aggregate_vector_2nd(vector<vector<uint32_t>> vec_a, vector<vec
 // Get all files' paths in directory as vector
 vector<string> get_all_file_in_dir(string path, e_role role){
 	vector<string> file_vec;
-  for (const auto & entry : fs::directory_iterator(path))
+  	for (const auto & entry : fs::directory_iterator(path))
 	{
 		string cur_file = entry.path();
 		if (role == SERVER)
