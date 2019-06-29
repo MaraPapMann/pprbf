@@ -39,7 +39,10 @@ vector<int> get_all_file_row_num(string dir_path){
   	for (const auto & entry : fs::directory_iterator(dir_path))
 	{
 		string cur_file = entry.path();
-        file_vec.push_back(cur_file);
+        if (cur_file.find("split_1") == string::npos  && cur_file.find("split_2") == string::npos)
+        {
+            file_vec.push_back(cur_file);
+        }
 	}
 	sort(file_vec.begin(), file_vec.end());  // Sort file list lexicographically.
     vector<int> row_nums;
@@ -273,7 +276,8 @@ void test(string file_path, string dir_path){
     }
 }
 
-
+/* 
 int main(){
     test("./csv_files/x.csv", "./csv_files/");
 }
+*/

@@ -64,6 +64,34 @@ vector<vector<int>> get_subsection_vec(vector<int> row_nums);
 
 
 /**
+ * Splice result vector into sections according to the section vector
+ * @param: res_vec: vector<uint32_t>; result vector.
+ * @param: section_vec: vector<int>; vector containing the length of each section.
+ * return: res_vec_in_sections: vector<vector<uint32_t>>; 2D vector containing results spliced into sections.
+ */
+vector<vector<uint32_t>> splice_res_vec_into_sections(vector<uint32_t> res_vec, vector<int> section_vec);
+
+
+/**
+ * Splice result in sections into subsections in vector.
+ * @param: res_vec_in_sections: vector<vector<uint32_t>>; result vector spliced into sections.
+ * @param: subsection_vec: vector<vector<int>>; 2D vector containing length of each subsection in each section.
+ * return: res_vec_in_subsections: vector<vector<vector<uint32_t>>>; 3D vector containing results spliced into subsections.
+ */
+vector<vector<vector<uint32_t>>> splice_res_vec_in_sections_into_subsections(vector<vector<uint32_t>> res_vec_in_sections,
+                                                                             vector<vector<int>> subsection_vec);
+
+
+/**
+ * Sort the result vector according to the original file order(from file a to z)
+ * @param: row_nums: vector<int>; 1D vector containing row numbers.
+ * @param: res_vec_in_subsections: vector<vector<vector<uint32_t>>>; 3D vector containing results spliced into subsections.
+ * return: sorted_res_vec: vector<vector<uint32_t>>; 2D vector containing sorted results.
+ */
+vector<vector<uint32_t>> sorting_res_vec(vector<int> row_nums, vector<vector<vector<uint32_t>>> res_vec_in_subsections);
+
+
+/**
  * Get the dot product matrix.
  * @param: sorted_res_vec: vector<vector<uint32_t>>; Sorted result vector.
  * return: dp_mat: vector<vector<uint32_t>>; dot product matrix, each cell is a result from any 2 vectors in order.
@@ -75,4 +103,4 @@ vector<vector<uint32_t>> get_dp_matrix(vector<vector<uint32_t>> sorted_res_vec);
  * Write the product matrix into csv file locally.
  * @param: input_mat: vector<vector<uint32_t>>; 2D vector containing ordered dot product matrix.
  */
-void write_matrix_into_csv(vector<vector<uint32_t>> dp_mat);
+void write_matrix_into_csv(vector<vector<uint32_t>> dp_mat, string out_file);

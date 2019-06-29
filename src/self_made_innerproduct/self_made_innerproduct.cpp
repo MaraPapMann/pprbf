@@ -24,6 +24,7 @@
 #include "iostream"
 #include <boost/algorithm/string.hpp>
 #include "csv_parser.h"
+#include "csv_writer.h"
 using namespace std;
 
 #include "generate_simulated_data.h"
@@ -60,7 +61,7 @@ share* BuildInnerProductCircuit(share *s_x, share *s_y, uint32_t num, Arithmetic
 // For loop summation; Combination gate to tranpose; Subset gate to extract the needed values.
 
 // Need input vector xvals & yvals
-int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t port, seclvl seclvl,
+uint32_t* inner_product_circuit(e_role role, const std::string& address, uint32_t port, seclvl seclvl,
 		uint32_t nvals, uint32_t bitlen, uint32_t nthreads, e_mt_gen_alg mt_alg,
 		e_sharing sharing, vector<uint32_t> xvals, vector<uint32_t> yvals, uint32_t dim) {
     
@@ -132,12 +133,8 @@ int32_t inner_product_circuit(e_role role, const std::string& address, uint32_t 
 			cout<<v_res[i]<<", ";
 		}
 	}
-
-	delete s_x_vec;
-	delete s_y_vec;
-	delete party;
-
-	return 0;
+	
+	return out_vals;
 }
 
 int32_t read_test_options(int32_t* argcp, char*** argvp, e_role* role,
@@ -206,7 +203,7 @@ int main(int argc, char** argv) {
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
 	
-	string dir = "../../splitFile/csv_dir/";
+	string dir = "../../data/probe/";
 
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
 
@@ -219,6 +216,21 @@ int main(int argc, char** argv) {
 	uint32_t dim = get_dimension_of_2dvector(csv.getData());
 	x_vec = generate_1st_long_vector_for_all_files_in_dir(file_vec);
 	y_vec = generate_2nd_long_vector_for_all_files_in_dir(file_vec);
+	vector<int> row_nums = get_all_file_row_num(dir);
+	vector<int> section_vec = get_section_vec(row_nums);
+	cout<<"setion_vec"<<endl;
+	for(int section:section_vec){
+		cout<<section<<", ";
+	}
+	cout<<endl;
+	vector<vector<int>> subsection_vec = get_subsection_vec(row_nums);
+	cout<<"subsection_vec"<<endl;
+	for(vector<int> section:subsection_vec){
+		for(int subsection:section){
+			cout<<subsection<<", ";
+		}
+		cout<<endl;
+	}
 
 
 	/**
@@ -232,7 +244,39 @@ int main(int argc, char** argv) {
 	*/
 
 	// call inner product routine. set size with cmd-parameter -n <size>
-	inner_product_circuit(role, address, port, seclvl, 1, bitlen, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
+	uint32_t* res_arr = inner_product_circuit(role, address, port, seclvl, 1, bitlen, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
+	int num = x_vec.size();
+	int mod_num = pow(2, bitlen);
+	vector<uint32_t> res_vec;
+	for(int i=0; i<num/dim; i++)
+	{
+		uint32_t cur_res = res_arr[i] % mod_num;
+		res_vec.push_back(cur_res);
+	}
+	cout<<"Res Vec"<<endl;
+	for(uint32_t res:res_vec){
+		cout<<res<<", ";
+	}
+	cout<<"Result vector computed"<<endl;
+
+	// Sort the result vector and 
+	vector<vector<uint32_t>> res_vec_in_section = splice_res_vec_into_sections(res_vec, section_vec);
+	cout<<"Res_vec_in_section"<<endl;
+	vector<vector<vector<uint32_t>>> res_vec_in_subsection = splice_res_vec_in_sections_into_subsections(res_vec_in_section, subsection_vec);
+	cout<<"Res_vec_in_subsection"<<endl;
+	vector<vector<uint32_t>> sorted_res_vec = sorting_res_vec(row_nums, res_vec_in_subsection);
+	cout<<"Sorted_res_vec"<<endl;
+	for(vector<uint32_t> sorted_vec:sorted_res_vec){
+		for(uint32_t res:sorted_vec){
+			cout<<res<<", ";
+		}
+		cout<<endl;
+	}
+	vector<vector<uint32_t>> dp_mat = get_dp_matrix(sorted_res_vec);
+	cout<<"Dp_mat"<<endl;
+	string out_file = dir + "dp_mat.csv";
+	cout<<out_file;
+	write_matrix_into_csv(dp_mat, out_file);
 
 	return 0;
 }

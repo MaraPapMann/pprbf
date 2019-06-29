@@ -19,5 +19,5 @@ elseif (NOT ABY_FOUND AND NOT TARGET ABY::aby)
  	add_subdirectory(extern/ABY)
 
 endif()
-add_executable(self_made_innerproduct self_made_innerproduct.cpp csv_parser.cpp generate_simulated_data.cpp vector_process.cpp)
+add_executable(self_made_innerproduct self_made_innerproduct.cpp csv_parser.cpp generate_simulated_data.cpp vector_process.cpp csv_writer.cpp)
 target_link_libraries(self_made_innerproduct ABY::aby ENCRYPTO_utils::encrypto_utils)

@@ -4,6 +4,13 @@
 CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.o: ../csv_parser.cpp
 CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.o: ../csv_parser.h
 
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: ../csv_writer.cpp
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: ../csv_writer.h
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: /usr/local/include/ENCRYPTO_utils/constants.h
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: /usr/local/include/ENCRYPTO_utils/parse_options.h
+CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o: /usr/local/include/ENCRYPTO_utils/typedefs.h
+
 CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o: /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/ABY_utils/ABYconstants.h
 CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o: /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/ABY_utils/convtypes.h
 CMakeFiles/self_made_innerproduct.dir/generate_simulated_data.cpp.o: /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/aby/abyparty.h
@@ -34,6 +41,7 @@ CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: /home/chen/G
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/circuit/share.h
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/sharing/sharing.h
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: ../csv_parser.h
+CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: ../csv_writer.h
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: ../generate_simulated_data.h
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: ../self_made_innerproduct.cpp
 CMakeFiles/self_made_innerproduct.dir/self_made_innerproduct.cpp.o: ../vector_process.h

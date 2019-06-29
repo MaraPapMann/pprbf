@@ -150,6 +150,33 @@ csv_parser.cpp.s:
 	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/csv_parser.cpp.s
 .PHONY : csv_parser.cpp.s
 
+csv_writer.o: csv_writer.cpp.o
+
+.PHONY : csv_writer.o
+
+# target to build an object file
+csv_writer.cpp.o:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.o
+.PHONY : csv_writer.cpp.o
+
+csv_writer.i: csv_writer.cpp.i
+
+.PHONY : csv_writer.i
+
+# target to preprocess a source file
+csv_writer.cpp.i:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.i
+.PHONY : csv_writer.cpp.i
+
+csv_writer.s: csv_writer.cpp.s
+
+.PHONY : csv_writer.s
+
+# target to generate assembly for a file
+csv_writer.cpp.s:
+	$(MAKE) -f CMakeFiles/self_made_innerproduct.dir/build.make CMakeFiles/self_made_innerproduct.dir/csv_writer.cpp.s
+.PHONY : csv_writer.cpp.s
+
 generate_simulated_data.o: generate_simulated_data.cpp.o
 
 .PHONY : generate_simulated_data.o
@@ -243,6 +270,9 @@ help:
 	@echo "... csv_parser.o"
 	@echo "... csv_parser.i"
 	@echo "... csv_parser.s"
+	@echo "... csv_writer.o"
+	@echo "... csv_writer.i"
+	@echo "... csv_writer.s"
 	@echo "... generate_simulated_data.o"
 	@echo "... generate_simulated_data.i"
 	@echo "... generate_simulated_data.s"
