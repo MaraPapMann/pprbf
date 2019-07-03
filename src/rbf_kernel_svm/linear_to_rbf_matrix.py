@@ -1,12 +1,17 @@
 """
-@Author: Huajie Chen
-@Aim: To calculate the rbf kernel matrix based on the linear kernel(dot product) matrix.
-@Input: Linear kernel matrix(row from a to z, column from a to z)
+@Author:
+    Huajie Chen
+@Aim:
+    To calculate the rbf kernel matrix based on the linear kernel(dot product) matrix.
+@Input:
+    Linear kernel matrix(row from a to z, column from a to z).
 @Step:
     1.  RBF Kernel Formula: K(x, y) = exp(||x - y||^2 / -2*sigma^2);
     2.  ||x - y||^2 = x*x - 2xy + y*y;
     3.  Sigma is a manual input parameter;
     4.  Compute the matrix row by row accordingly.
+@Output:
+    An rbf kernel matrix.
 """
 
 import numpy as np
@@ -15,10 +20,10 @@ import pandas as pd
 
 def rbf_kernel_formula(norm_xy, sigma):
     """
-    Calculate the rbf kernel matrix(one cell)
-    :param norm_xy: norm of (x-y)
-    :param sigma: manual parameter
-    :return: rbf kernel dot product(one cell)
+    Calculate the rbf kernel matrix(one cell).
+    :param norm_xy: norm of (x-y);
+    :param sigma: manual parameter;
+    :return: rbf kernel dot product(one cell).
     """
     rbf_kernel_dp = np.exp(norm_xy / (-2 * sigma ** 2))
     return rbf_kernel_dp
@@ -30,7 +35,7 @@ def get_norm_xy(xx, xy, yy):
     :param xx: dot product of x and x;
     :param xy: dot product of x and y;
     :param yy: dot product of y and y;
-    :return: norm of (x-y)
+    :return: norm of (x-y).
     """
     norm_xy = xx - 2 * xy + yy
     return norm_xy
@@ -46,7 +51,7 @@ def get_corresponding_index(cur_i, cur_j):
     Get the corresponding index for xx, xy, yy for calculation.
     :param cur_i: current index i;
     :param cur_j: current index j;
-    :return: corresponding_index: [xx_idx, xy,idx, yy_idx]
+    :return: corresponding_index: [xx_idx, xy,idx, yy_idx].
     """
     xx_idx = [cur_i, cur_i]
     xy_idx = [cur_i, cur_j]
@@ -57,9 +62,9 @@ def get_corresponding_index(cur_i, cur_j):
 
 def get_rbf_kernel_matrix(dp_mat, sigma):
     """
-    To get the rbf_kernel_matrix
+    To get the rbf kernel matrix.
     :param dp_mat: linear dot product matrix calculated before;
-    :return: rbf_kernel_matrix: np.matrix
+    :return: rbf_kernel_matrix: np.matrix.
     """
     dp_mat_rank = dp_mat.shape
     rbf_kernel_mat = np.zeros(dp_mat_rank)
@@ -78,8 +83,25 @@ def get_rbf_kernel_matrix(dp_mat, sigma):
     return rbf_kernel_mat
 
 
-if __name__ == '__main__':
-    dp_mat = get_input_dp_mat("./data/dp_mat.csv")
-    sigma = 1
+def linear_to_rbf_matrix(dp_mat_path, sigma):
+    """
+    From linear dot product matrix to rbf kernel matrix(final capsulation)
+    :param dp_mat_path: path to the dot product csv file;
+    :param sigma: parameter for the rbf kernel formula;
+    :return: rbf_kernel_mat.
+    """
+    dp_mat = get_input_dp_mat(dp_mat_path)
     rbf_kernel_mat = get_rbf_kernel_matrix(dp_mat, sigma)
+    return rbf_kernel_mat
+
+
+if __name__ == '__main__':
+    # Test
+
+    # Initialization
+    dp_mat_path = "./data/dp_mat.csv"
+    sigma = 1
+
+    # Run main function
+    rbf_kernel_mat = linear_to_rbf_matrix(dp_mat_path, sigma)
     print(rbf_kernel_mat)
