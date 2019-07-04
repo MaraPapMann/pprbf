@@ -20,14 +20,42 @@
 
 
 from linear_to_rbf_matrix import linear_to_rbf_matrix
+from cross_validation import get_labels
+from cross_validation import estimation_f1_score
+from sklearn.svm import SVC
+
+
+def get_data(dp_mat_path, sigma):
+    X = linear_to_rbf_matrix(dp_mat_path, sigma)
+    return X
+
+
+def get_prediction(X_train, Y_train, X_test, C, class_weight):
+    clf = SVC(C=C, class_weight=class_weight, kernel="precomputed")
+    clf.fit(X_train, Y_train)
+    Y_pred = clf.predict(X_test)
+    return Y_pred
+
 
 if __name__ == '__main__':
     # Test
 
     # Initialization
-    dp_mat_path = "./data/dp_mat.csv"
+    train_dp_mat_path = ""
+    test_dp_mat_path = ""
+    train_labels_path = ""
+    train_labels_key = ""
+    test_labels_path = ""
+    test_labels_key = ""
     sigma = 1
+    C = 1
+    class_weight = {0:1, 1:4}
 
     # Get rbf kernel matrix
-    rbf_kernel_mat = linear_to_rbf_matrix(dp_mat_path, sigma)
-    print(rbf_kernel_mat)
+    X_train = get_data(train_dp_mat_path, sigma)
+    X_test = get_data(test_dp_mat_path, sigma)
+    Y_train = get_labels(train_labels_path, train_labels_key)
+    Y_test = get_labels(test_labels_path, test_labels_key)
+    Y_pred = get_prediction(X_train, Y_train, X_test, C, class_weight)
+    F1_score = estimation_f1_score(Y_pred, Y_test)
+    print("The F1-Score of the given svm classifier is {:}".format(F1_score))
