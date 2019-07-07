@@ -41,12 +41,12 @@ if __name__ == '__main__':
     # Test
 
     # Initialization
-    train_dp_mat_path = ""
-    test_dp_mat_path = ""
-    train_labels_path = ""
-    train_labels_key = ""
-    test_labels_path = ""
-    test_labels_key = ""
+    train_dp_mat_path = "/home/chen/Git_repositories/pprbf/src/data/train/dp_mat.csv"
+    test_dp_mat_path = "/home/chen/Git_repositories/pprbf/src/data/test/dp_mat.csv"
+    train_labels_path = "/home/chen/Git_repositories/pprbf/src/data/train/label"
+    train_labels_key = "labels"
+    test_labels_path = "/home/chen/Git_repositories/pprbf/src/data/test/label"
+    test_labels_key = "test_labels"
     sigma = 1
     C = 1
     class_weight = {0:1, 1:4}

@@ -16,7 +16,8 @@
     3.  Load the cv_train/test data and labels into the SVM model using different parameters in rounds;
     4.  Use AUC or F1-score to estimate the performance.
 @Output:
-    The set of parameters with the highest performance.
+    1.  The set of parameters with the highest performance.
+    2.  Write the
 """
 
 from os import listdir
@@ -25,6 +26,7 @@ from linear_to_rbf_matrix import linear_to_rbf_matrix
 from sklearn.svm import SVC
 from sklearn.metrics import f1_score
 import numpy as np
+
 
 """
 Pt1.    Concatenate labels.
@@ -286,9 +288,9 @@ Final Capsulation.
 """
 
 
-def cross_validation(dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst):
-    labels = get_labels(dir_path, key)
-    section_lengths = get_section_lengths(dir_path, key)
+def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst):
+    labels = get_labels(test_labels_dir_path, key)
+    section_lengths = get_section_lengths(test_labels_dir_path, key)
     cv_idx_list = generate_cv_index(section_lengths, fold_num)
     param_lst = []
     avg_f1_score_lst = []
@@ -330,9 +332,9 @@ if __name__ == '__main__':
     # Test
 
     # Initialization
-    dir_path = "/home/chen/Git_repositories/pprbf/src/data/"
-    key = "test_labels"
-    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/dp_mat.csv"
+    cv_test_labels_dir_path = "/home/chen/Git_repositories/pprbf/src/data/train/label"
+    key = "labels"
+    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/dp_mat.csv"
     fold_num = 5
     C_lst = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
     sigma_lst = [0.125, 0.25, 0.5, 1, 2, 4, 8]
@@ -344,4 +346,4 @@ if __name__ == '__main__':
         {0: 1, 1: 10}]
 
     # Run code
-    cross_validation(dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
+    cross_validation(cv_test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
