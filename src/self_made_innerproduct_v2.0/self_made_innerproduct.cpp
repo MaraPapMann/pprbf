@@ -56,7 +56,6 @@ share* BuildInnerProductCircuit(share *s_x, share *s_y, uint32_t num, Arithmetic
 	s_x->set_bitlength(num/dim);
 
 	return s_x;
-	delete s_x;
 }
 
 // For loop summation; Combination gate to tranpose; Subset gate to extract the needed values.
@@ -65,84 +64,86 @@ share* BuildInnerProductCircuit(share *s_x, share *s_y, uint32_t num, Arithmetic
 uint32_t* inner_product_circuit(e_role role, const std::string& address, uint32_t port, seclvl seclvl,
 		uint32_t nvals, uint32_t bitlen, uint32_t nthreads, e_mt_gen_alg mt_alg,
 		e_sharing sharing, vector<uint32_t> xvals, vector<uint32_t> yvals, uint32_t dim) {
-    
-    ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads,
-			mt_alg);
 
-    std::vector<Sharing*>& sharings = party->GetSharings();
-
-    ArithmeticCircuit* circ =
-			(ArithmeticCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
-
-    share *s_x_vec, *s_y_vec, *s_out;
-    uint32_t num = xvals.size();
-
-    s_x_vec = circ->PutSharedSIMDINGate(num, xvals.data(), bitlen);
-	s_y_vec = circ->PutSharedSIMDINGate(num, yvals.data(), bitlen);		
-
-    s_out = BuildInnerProductCircuit(s_x_vec, s_y_vec, num,
-			(ArithmeticCircuit*) circ, dim);
-
-	s_out = circ -> PutOUTGate(s_out, ALL);
-
-	party -> ExecCircuit();
-
-	// Output an array
-	uint32_t out_bitlen, out_nvals, *out_vals;
-	s_out -> get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
-
-	/* 
-	uint32_t v_res[num/dim];
-
-	for (uint32_t i = 0; i < num/dim; i++)
-	{
-		int idx = i*dim;
-		int temp_sum = 0;
-		for(int j=0; j<dim; j++)
-		{
-			temp_sum = temp_sum + (xvals[idx+j] * yvals[idx+j]);
-		}
-		v_res[i] = temp_sum;
-	}
 	
-	std::cout << "\nCircuit Result: " << endl;
-	for(int i=0; i<num/dim; i++)
-	{
-		if (i==sizeof(out_vals)-1)
+	uint32_t vec_len_limit = 5000000;
+	int vec_len = xvals.size();
+	int seg_len = (vec_len % vec_len_limit / dim) * dim;
+	int seg_num = vec_len / seg_len;
+	int mod_num = pow(2, bitlen);	
+	cout<<"dimension: "<<dim<<endl;
+	cout<<"vec_len: "<<vec_len<<endl;
+	cout<<"seg_len: "<<seg_len<<endl;
+	cout<<"seg_num: "<<seg_num<<endl;
+	cout<<"Slice Complete."<<endl;
+	
+	
+	// vector<uint32_t> res_vec;
+	uint32_t res_arr_final[vec_len / dim];
+	int idx = 0;
+	for(int i=0; i<seg_num; i++){
+		vector<uint32_t> x_vec_in_seg, y_vec_in_seg;
+		if (i != seg_num - 1)
 		{
-			cout<<out_vals[i]<<endl;
-		}else
+			vector<uint32_t>::const_iterator first_x_vec = xvals.begin() + (i*seg_len);
+			vector<uint32_t>::const_iterator last_x_vec = xvals.begin() + ((i+1)*seg_len);
+			vector<uint32_t> temp_x_vec_seg(first_x_vec, last_x_vec);
+			x_vec_in_seg = temp_x_vec_seg;
+
+			vector<uint32_t>::const_iterator first_y_vec = yvals.begin() + (i*seg_len);
+			vector<uint32_t>::const_iterator last_y_vec = yvals.begin() + ((i+1)*seg_len);
+			vector<uint32_t> temp_y_vec_seg(first_y_vec, last_y_vec);
+			y_vec_in_seg = temp_y_vec_seg;
+		} 
+		else
 		{
-			cout<<out_vals[i]<<", ";
+			vector<uint32_t>::const_iterator first_x_vec = xvals.begin() + (i*seg_len);
+			vector<uint32_t>::const_iterator last_x_vec = xvals.begin() + (xvals.size());
+			vector<uint32_t> temp_x_vec_seg(first_x_vec, last_x_vec);
+			x_vec_in_seg = temp_x_vec_seg;
+
+			vector<uint32_t>::const_iterator first_y_vec = yvals.begin() + (i*seg_len);
+			vector<uint32_t>::const_iterator last_y_vec = yvals.begin() + (yvals.size());
+			vector<uint32_t> temp_y_vec_seg(first_y_vec, last_y_vec);
+			y_vec_in_seg = temp_y_vec_seg;
 		}
-	}
-	*/
 
-	/**
-	for (int i=0; i<(sizeof(out_vals)/sizeof(*out_vals)); i++)
-	{
-		cout << out_vals[i] << ", ";
-	}
-	*/
+		ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads, mt_alg);
+		vector<Sharing*>& sharings = party->GetSharings();
+		ArithmeticCircuit* circ = (ArithmeticCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
+		share *s_x_vec, *s_y_vec, *s_out;
+		
+		s_x_vec = circ->PutSharedSIMDINGate(x_vec_in_seg.size(), x_vec_in_seg.data(), bitlen);
+		s_y_vec = circ->PutSharedSIMDINGate(y_vec_in_seg.size(), y_vec_in_seg.data(), bitlen);
+		
+		s_out = BuildInnerProductCircuit(s_x_vec, s_y_vec, x_vec_in_seg.size(), circ, dim);
+		s_out = circ -> PutOUTGate(s_out, ALL);
 
-	/* 
-	cout << endl;
-	std::cout << "\nVerification Result: " << std::endl;
-	for(int i=0; i<num/dim; i++)
-	{
-		if (i==num/dim-1)
+		party -> ExecCircuit();
+
+		cout<<"check"<<endl;
+		// Output an array
+		uint32_t out_bitlen, out_nvals, *out_vals;
+		s_out -> get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);	
+
+		uint32_t* res_arr = out_vals;
+		
+		for(int j=0; j<x_vec_in_seg.size() / dim; j++)
 		{
-			cout<<v_res[i]<<endl;
-		}else
-		{
-			cout<<v_res[i]<<", ";
+			uint32_t cur_res = res_arr[j] % mod_num;																																											
+			res_arr_final[idx] = cur_res;
+			idx++;
 		}
-	}
-	*/
+		cout<<i+1<<"/"<<seg_num<<" of the task is finished."<<endl;
 
-	return out_vals;
-	delete out_vals, s_out; s_x_vec; s_y_vec;
-	party -> Reset();
+		//free(s_x_vec); 
+		//free(s_y_vec);
+		//free(s_out);
+		//free(out_vals);
+		// party -> Reset();
+	}
+
+	return res_arr_final;
 }
 
 int32_t read_test_options(int32_t* argcp, char*** argvp, e_role* role,
@@ -211,14 +212,13 @@ int main(int argc, char** argv) {
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
 	
-	string dir = "../../data/train/";
+	string dir = "../../data/probe/";
 
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
 
 	seclvl seclvl = get_sec_lvl(secparam);
 
 	vector<uint32_t> x_vec, y_vec;  // can use int[] array
-	uint32_t vec_len_limit = 5000000;
 
 	// Read csv file part
 	vector<string> file_vec = get_all_file_in_dir(dir, role);  // Get all file in a directory by role
@@ -231,13 +231,6 @@ int main(int argc, char** argv) {
 	
 	// Slice
 	int vec_len = x_vec.size();
-	int seg_len = (vec_len % vec_len_limit / dim) * dim;
-	int seg_num = vec_len / seg_len;
-	cout<<"dimension: "<<dim<<endl;
-	cout<<"vec_len: "<<vec_len<<endl;
-	cout<<"seg_len: "<<seg_len<<endl;
-	cout<<"seg_num: "<<seg_num<<endl;
-	cout<<"Slice Complete."<<endl;
 
 	vector<int> row_nums = get_all_file_row_num(dir);
 	vector<int> section_vec = get_section_vec(row_nums);
@@ -257,53 +250,25 @@ int main(int argc, char** argv) {
 
 
 	// call inner product routine. set size with cmd-parameter -n <size>
-	int num = x_vec.size();		
-	int mod_num = pow(2, bitlen);		
-	vector<uint32_t> res_vec;
-	for(int i=0; i<seg_num; i++){
-		vector<uint32_t> x_vec_in_seg, y_vec_in_seg;
-		if (i != seg_num - 1)
-		{
-			vector<uint32_t>::const_iterator first_x_vec = x_vec.begin() + (i*seg_len);
-			vector<uint32_t>::const_iterator last_x_vec = x_vec.begin() + ((i+1)*seg_len);
-			vector<uint32_t> temp_x_vec_seg(first_x_vec, last_x_vec);
-			x_vec_in_seg = temp_x_vec_seg;
-
-			vector<uint32_t>::const_iterator first_y_vec = y_vec.begin() + (i*seg_len);
-			vector<uint32_t>::const_iterator last_y_vec = y_vec.begin() + ((i+1)*seg_len);
-			vector<uint32_t> temp_y_vec_seg(first_y_vec, last_y_vec);
-			y_vec_in_seg = temp_y_vec_seg;
-		} 
-		else
-		{
-			vector<uint32_t>::const_iterator first_x_vec = x_vec.begin() + (i*seg_len);
-			vector<uint32_t>::const_iterator last_x_vec = x_vec.begin() + (x_vec.size());
-			vector<uint32_t> temp_x_vec_seg(first_x_vec, last_x_vec);
-			x_vec_in_seg = temp_x_vec_seg;
-
-			vector<uint32_t>::const_iterator first_y_vec = y_vec.begin() + (i*seg_len);
-			vector<uint32_t>::const_iterator last_y_vec = y_vec.begin() + (y_vec.size());
-			vector<uint32_t> temp_y_vec_seg(first_y_vec, last_y_vec);
-			y_vec_in_seg = temp_y_vec_seg;
-		}
-
-		uint32_t* res_arr = inner_product_circuit(role, address, port, seclvl, 1, bitlen, nthreads, mt_alg, S_ARITH, x_vec_in_seg, y_vec_in_seg, dim);
-		for(int j=0; j<x_vec_in_seg.size() / dim; j++)
-		{
-			uint32_t cur_res = res_arr[j] % mod_num;																																											
-			res_vec.push_back(cur_res);
-		}
-		cout<<i+1<<"/"<<seg_num<<" of the task is finished."<<endl;
-		delete res_arr;
-	}
+	// int num = x_vec.size();		
+	uint32_t* res_arr_final = inner_product_circuit(role, address, port, seclvl, nvals, bitlen, nthreads, mt_alg, S_ARITH, x_vec, y_vec, dim);
 	
 	cout<<"Res Vec"<<endl;
+	/* 
 	for(uint32_t res:res_vec){
 		cout<<res<<", ";
 	}
+	*/
+
+	cout<<res_arr_final[0]<<endl;
+	/* 
+	for(int i=0; i<(vec_len/dim); i++){
+		cout<<res_arr_final[i]<<", "<<endl;
+	}
+	*/
 	cout<<"Result vector computed"<<endl;
 
-
+	/* 
 	// Sort the result vector and 
 	vector<vector<uint32_t>> res_vec_in_section = splice_res_vec_into_sections(res_vec, section_vec);
 	cout<<"Res_vec_in_section"<<endl;
@@ -322,6 +287,6 @@ int main(int argc, char** argv) {
 	string out_file = dir + "dp_mat.csv";
 	cout<<out_file;
 	write_matrix_into_csv(dp_mat, out_file);
-	
+	*/
 	return 0;
 }

@@ -1,0 +1,28 @@
+20190531
+Problem to date:
+    1.  Do not know how to split the SIMD share into segmentation by j(dimension of vector). Need to read or ask.
+Solution:
+    1.  The result of PutMulGate() is a SIMD Share;
+
+        SIMD Share is like a vector(vertically arranged);
+
+        PutSubsetGate(): Get a subset of a SIMD Share, posids is the exact position in every SIMD Share, e.g. {0, 2, 2,}
+            means pos 0 pos2 pos2, namely using idx 0, 2, 2 in each row the form a subset share;
+
+        PutSplitterGate(): Transform a SIMD Share into non-SIMD share, namely transpose a vector;
+        
+        PutCombinerGate(): Transform a non-SIMD Share into SIMD Share, namely transpose a transposed vector;
+        
+        PutPermutationGate(): Get one bit in each column by posids;
+        
+        get_clear_value_vec(): Output a vector;
+
+        1.1 Based on the information above, a way can be derived:
+            a.  I have a SIMD Share containing the result of the previous multiplication;
+            b.  Use PutSubsetGate() to derive subset Share, in this case, dimension = j,
+                e.g. (0, 1, 2), (3, 4, 5), ..., (n-3, n-2, n-1), nvals_out = dimension;
+                Use for loop;
+            c.  
+
+20190610
+    1. s_x_vec: 32 wires, 99 nvals. Each nval is an original number, each wire stands for a pos

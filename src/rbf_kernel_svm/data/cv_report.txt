@@ -1,0 +1,1 @@
+The best parameters in this context are sigma = 8, C = 10, class_weight = {0: 1, 1: 1} with the corresponding F1-score 0.9081967213114754.

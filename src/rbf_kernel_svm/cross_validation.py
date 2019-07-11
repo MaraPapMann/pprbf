@@ -319,7 +319,7 @@ def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, si
     print("Average F1-score list:")
     print(avg_f1_score_lst)
     print(cv_report)
-    file = open("./cv_report", "w")
+    file = open("./cv_report.txt", "w")
     file.write(cv_report)
     file.close()
 
@@ -332,9 +332,9 @@ if __name__ == '__main__':
     # Test
 
     # Initialization
-    cv_test_labels_dir_path = "/home/chen/Git_repositories/pprbf/src/data/train/label"
-    key = "labels"
-    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/dp_mat.csv"
+    train_labels_dir_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/label/"
+    key = "split_label"
+    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
     fold_num = 5
     C_lst = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
     sigma_lst = [0.125, 0.25, 0.5, 1, 2, 4, 8]
@@ -346,4 +346,4 @@ if __name__ == '__main__':
         {0: 1, 1: 10}]
 
     # Run code
-    cross_validation(cv_test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
+    cross_validation(train_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
