@@ -1,3 +1,0 @@
-/home/chen/Git_repositories/pprbf/src/self_made_billionaire_problem/build/CMakeFiles/rebuild_cache.dir
-/home/chen/Git_repositories/pprbf/src/self_made_billionaire_problem/build/CMakeFiles/self_made_test.dir
-/home/chen/Git_repositories/pprbf/src/self_made_billionaire_problem/build/CMakeFiles/edit_cache.dir
