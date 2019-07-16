@@ -1,3 +1,18 @@
+/**
+ *  @Author:
+ *      Huajie Chen
+ *  @Aim:
+ *      1.	Parse given csv file into array;
+ *  @Input:
+ *      1.  file_name: path to the file;
+ * 		2.	delm: delimiter, normally comma.
+ *  @Output:
+ *      1.	array: parsed data in array form;
+ * 		2.	nrow: row number of this file;
+ * 		3.	ncol: column number of this file.
+ */
+
+
 #include <fstream>
 #include <string>
 #include <sstream>

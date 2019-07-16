@@ -1,3 +1,21 @@
+/**
+ *  @Author:
+ *      Huajie Chen
+ *  @Aim:
+ *      1.	Parse all csv files in given directory and create 2 long arrays;
+ *      2.  Document the needed information of the long arrays.
+ *  @Input:
+ *      1.  path: path to the target directory;
+ * 		2.	role: SERVER / CLIENT;
+ *  @Output:
+ *      1.	dim: dimension of a vector(column number of a file);
+ * 		2.	long_array_len: length of a long array;
+ * 		3.	long_array_a: long array a;
+ *      4.  long_array_b: long array b;
+ *      5.  row_nums: Vector containing row numbers;
+ *      6.  res_array_length: result array length.
+ */
+
 #include <vector>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
@@ -12,7 +30,7 @@ using namespace std;
 class long_array
 {
 private:
-    string path; // Path to the file.
+    string path; // Path to the target directoty.
     e_role role; // Role: SERVER or CLIENT.
     
     // Get row numbers of all files into a vector.
@@ -44,7 +62,6 @@ public:
     long_array(string path, e_role role):
         path(path),
         role(role)
-        
         {};
 
     // Dimension(column number).

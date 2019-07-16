@@ -1,3 +1,17 @@
+/**
+ *  @Author:
+ *      Huajie Chen
+ *  @Aim:
+ *      Transform the result array to a sorted matrix and write it to a csv file.
+ *  @Input:
+ *      1.  res_arr: result array;
+ *      2.  array_length: length of the result array;
+ *      3.  row_nums: vector containing row numbers of each file.
+ *  @Output:
+ *      1. dp_mat: dot product matrix;
+ *      2. write the dot product matrix into csv file.
+ */
+
 #include <iostream>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
@@ -73,14 +87,16 @@ private:
     vector<vector<uint32_t>> get_dp_matrix(vector<vector<uint32_t>> sorted_res_vec);
 
 public:
+    // Transform the result array to a vector.
     vector<uint32_t> from_array_to_vector(uint32_t *res_array, int array_length);
 
+    // Initiator.
     csv_writer(uint32_t *res_arr, int array_length, vector<int> row_nums):
     res_vec(csv_writer::from_array_to_vector(res_arr, array_length)),
     row_nums(row_nums)
     {};
 
-    
+    // The dot product matrix
     vector<vector<uint32_t>> dp_mat = csv_writer::get_dp_matrix(sorted_res_vec);
 
     /**

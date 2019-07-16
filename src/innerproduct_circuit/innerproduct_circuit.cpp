@@ -1,7 +1,16 @@
 /**
- @title     Innerproduct Circuit
- @author    Huajie Chen
-*/
+ *  @Author:
+ *      Huajie Chen
+ *  @Aim:
+ *      1.	Parse all csv files in given directory;
+ * 		2.	Calculate the dot product and push them into an array;
+ * 		3.	Transform the dot product array into a vector, get the dot product matrix and write it into a csv file.
+ *  @Input:
+ *      1.  role: 0:SERVER, 1:CLIENT;
+ * 		2.	dir: directory containing the target csv files.
+ *  @Output:
+ *      1. write the dot product matrix into csv file.
+ */
 
 //Utility libraries.
 #include <ENCRYPTO_utils/crypto/crypto.h>
