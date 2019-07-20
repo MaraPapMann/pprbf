@@ -5,10 +5,12 @@ import sys
 import getopt
 
 
-# I: Directory(str)
-# O: Absolute path of files(list)
-# Interp. Get absolute path of all files in give directory
 def get_all_files_in_dir(dir):
+    """
+    Get all files in given directory as list.
+    :param dir: path to the target directory.
+    :return: files: list; a list containing all files' absolute paths.
+    """
     files = []
     for dirpath, _, filenames in os.walk(dir):
         for f in filenames:
@@ -20,27 +22,62 @@ def get_all_files_in_dir(dir):
 # O: Two encrypted split matrix(list)
 # Interp. Encrypt the given file, split the file into two files.
 def split_file(in_file, bit_length):
-    if bit_length not in [8, 16, 32, 64]:
-        raise ValueError('bit_length should be one of [8, 16, 32, 64].')
+    """
+
+    :param in_file:
+    :param bit_length:
+    :return:
+    """
+    if bit_length not in [1, 8, 16, 32, 64]:
+        raise ValueError('bit_length should be one of [1, 8, 16, 32, 64].')
     else:
-        try:
-            in_file = pd.read_csv(in_file, header=None)
-            lst_to_return_1 = []
-            lst_to_return_2 = []
-            shape = in_file.shape
-            for i in range(shape[0]):
-                cur_vector_1 = []
-                cur_vector_2 = []
-                for j in range(shape[1]):
-                    cur_val = in_file.iloc[i, j]
-                    cur_random_val = np.random.randint(0, 2**bit_length + 1)  # Upper bound need to + 1
-                    cur_vector_1.append(cur_random_val)
-                    cur_vector_2.append(abs(cur_val + 2**bit_length - cur_random_val))
-                lst_to_return_1.append(cur_vector_1)
-                lst_to_return_2.append(cur_vector_2)
-            return lst_to_return_1, lst_to_return_2
-        except ValueError:
-            print('Please input a proper CSV file')
+        if bit_length != 1:
+            try:
+                in_file = pd.read_csv(in_file, header=None)
+                lst_to_return_1 = []
+                lst_to_return_2 = []
+                shape = in_file.shape
+                for i in range(shape[0]):
+                    cur_vector_1 = []
+                    cur_vector_2 = []
+                    for j in range(shape[1]):
+                        cur_val = in_file.iloc[i, j]
+                        cur_random_val = np.random.randint(0, 2 ** bit_length)  # Upper bound need to + 1
+                        cur_vector_1.append(cur_random_val)
+                        cur_vector_2.append(abs(cur_val + 2 ** bit_length - cur_random_val))
+                    lst_to_return_1.append(cur_vector_1)
+                    lst_to_return_2.append(cur_vector_2)
+                return lst_to_return_1, lst_to_return_2
+            except ValueError:
+                print('Please input a proper CSV file')
+        else:  # bit_length = 1
+            try:
+                in_file = pd.read_csv(in_file, header=None)
+                lst_to_return_1 = []
+                lst_to_return_2 = []
+                shape = in_file.shape
+                for i in range(shape[0]):
+                    cur_vector_1 = []
+                    cur_vector_2 = []
+                    for j in range(shape[1]):
+                        cur_val = in_file.iloc[i, j]
+                        cur_random_val = np.random.randint(0, 2 ** bit_length)  # Upper bound need to + 1
+                        cur_vector_1.append(cur_random_val)
+                        if cur_val == 0:
+                            if cur_random_val == 0:
+                                cur_vector_2.append(0)
+                            else:
+                                cur_vector_2.append(1)
+                        else:
+                            if cur_random_val == 1:
+                                cur_vector_2.append(0)
+                            else:
+                                cur_vector_2.append(1)
+                    lst_to_return_1.append(cur_vector_1)
+                    lst_to_return_2.append(cur_vector_2)
+                return lst_to_return_1, lst_to_return_2
+            except ValueError:
+                print('Please input a proper CSV file')
 
 
 # I: Split file matrix(list), Output name(str)

@@ -32,6 +32,7 @@
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 #include <vector>
+#include <chrono>
 
 // Self-produced codes.
 #include "read_test_options.h"
@@ -39,6 +40,7 @@
 #include "csv_writer.h"
 
 using namespace std;
+
 
 share* inner_product_circuit(share *s_x, share *s_y, int num, ArithmeticCircuit *ac, uint16_t dim) {
 	// pairwise multiplication of all input values
@@ -65,7 +67,8 @@ share* inner_product_circuit(share *s_x, share *s_y, int num, ArithmeticCircuit 
 	s_x->set_bitlength(num/dim);
 
 	return s_x;
-	delete s_x, s_y, ac;
+	delete s_x;
+	delete s_y;
 }
 
 // For loop summation; Combination gate to tranpose; Subset gate to extract the needed values.
@@ -88,20 +91,23 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 	int sp = 0;
 	// Start point of one segmentation in the result array.
 	int res_sp = 0;
+
+	// Initiation of the ABY party.
+	ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads, mt_alg);
+	// Get sharings.
+	vector<Sharing*>& sharings = party->GetSharings();
+	// Build the corresponding circuit according to the sharing type.
+	ArithmeticCircuit* circ = (ArithmeticCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
+	// Sharings.
+	share *s_x_vec, *s_y_vec, *s_out;
+	// Long array a in segmentation.
+	uint16_t* long_arr_a_in_seg;
+	// Long array b in segmentation.
+	uint16_t* long_arr_b_in_seg;
+	uint32_t* out_vals;
+	uint32_t out_bitlen, out_nvals;
+
 	for(int i=0; i<seg_num; i++){
-		// Initiation of the ABY party.
-		ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads, mt_alg);
-		// Get sharings.
-		vector<Sharing*>& sharings = party->GetSharings();
-		// Build the corresponding circuit according to the sharing type.
-		ArithmeticCircuit* circ = (ArithmeticCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
-		
-		// Long array a in segmentation.
-		uint16_t* long_arr_a_in_seg;
-		// Long array b in segmentation.
-		uint16_t* long_arr_b_in_seg;
-		// Sharings.
-		share *s_x_vec, *s_y_vec, *s_out;
 
 		// Segment the long array into segmentations.
 		if (i != seg_num - 1)  // Not the very last one segmentation.
@@ -146,8 +152,7 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 		party -> ExecCircuit();
 
 		// Receive final result as an array.
-		uint32_t* out_vals;
-		uint32_t out_bitlen, out_nvals;
+		
 		s_out->get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
 
 		// Write current results into final long array
@@ -172,10 +177,17 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 
 
 		cout<<i+1<<"/"<<seg_num<<" of total is done..."<<endl;
-		
-		delete s_x_vec, s_y_vec, s_out, long_arr_a_in_seg, long_arr_b_in_seg, party, circ, out_vals, out_nvals, out_bitlen;
+
+		party->Reset();
 	}
 	return res_arr;
+	delete party;
+	delete s_x_vec;
+	delete s_y_vec;
+	delete s_out;
+	delete long_arr_a_in_seg;
+	delete long_arr_b_in_seg;
+	delete out_vals;
 }
 
 
@@ -188,17 +200,22 @@ int main(int argc, char** argv) {
 	std::string address = "127.0.0.1";
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
-	string dir = "/home/chen/Git_repositories/pprbf/src/data/probe/";
-	int seg_len_limit = 100000000;
+	string dir = "/home/chen/Git_repositories/pprbf/src/data/train/";
+	int seg_len_limit = 30000000;
 
 	// Parse command line.
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
-
+	// Get security level.
 	seclvl seclvl = get_sec_lvl(secparam);
+
+	// Start counting time.
+	chrono::steady_clock sc;
+	auto start = sc.now();
 
 	// Read csv file part
 	long_array* two_long_arrays = new long_array(dir, role);
 	cout<<"Long arrays built."<<endl;
+	cout<<"Long array length: "<<two_long_arrays->long_array_len<<endl;
 
 	// call inner product routine. set size with cmd-parameter -n <size>
 	uint32_t* res_arr_final = general_circuit(role, address, port, seclvl, nvals, bitlen, nthreads, mt_alg, S_ARITH, two_long_arrays, seg_len_limit);
@@ -208,6 +225,13 @@ int main(int argc, char** argv) {
 	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length, two_long_arrays->row_nums);
 	csv_to_write->write_matrix_into_csv(dir + "./dp_mat.csv");
 	cout<<"CSV file written."<<endl;
+	delete two_long_arrays;
+	delete csv_to_write;
+
+	// End counting time;
+	auto end = sc.now();
+	auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
+   	cout<<"Operation took: "<<time_span.count()<<" seconds...";
 	
 	return 0;
 }

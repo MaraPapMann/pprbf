@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06ab2e6-96ef-40df-a89c-abc2464e8a59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/merged_label/merged_labels.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ABY" beforeDir="false" afterPath="$PROJECT_DIR$/../ABY" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../innerproduct_circuit/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../innerproduct_circuit/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../innerproduct_circuit/build/CMakeFiles/innerproduct.exe.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../innerproduct_circuit/build/CMakeFiles/innerproduct.exe.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../innerproduct_circuit/build/CMakeFiles/innerproduct.exe.dir/innerproduct_circuit.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../innerproduct_circuit/build/CMakeFiles/innerproduct.exe.dir/innerproduct_circuit.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../innerproduct_circuit/build/innerproduct.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../innerproduct_circuit/build/innerproduct.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../innerproduct_circuit/innerproduct_circuit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../innerproduct_circuit/innerproduct_circuit.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cross_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test/a_encoded_test_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test/b_encoded_test_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test/dp_mat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test/label/alice_test_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test/label/bob_test_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train/a_encoded_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train/b_encoded_seq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train/dp_mat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train/label/alice_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train/label/bob_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbf_kernel_svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbf_kernel_svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splitFile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../splitFile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splitFile/split_file_into_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../splitFile/split_file_into_2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +23,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/linear_to_rbf_matrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="1848">
               <caret line="78" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
@@ -39,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rbf_kernel_svm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="67" column="61" lean-forward="true" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
+            <state relative-caret-position="967">
+              <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
               <folding>
                 <element signature="e#603#656#0" expanded="true" />
               </folding>
@@ -51,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5961">
-              <caret line="326" column="3" lean-forward="true" selection-start-line="326" selection-start-column="3" selection-end-line="326" selection-end-column="3" />
+            <state relative-caret-position="7704">
+              <caret line="326" column="3" selection-start-line="326" selection-start-column="3" selection-end-line="326" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -60,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
+            <state relative-caret-position="4968">
               <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
               <folding>
                 <element signature="e#412#434#0" expanded="true" />
@@ -72,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
+            <state relative-caret-position="1440">
               <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
               <folding>
                 <element signature="e#237#276#0" expanded="true" />
@@ -125,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,48 +126,10 @@
               <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
               <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="merged_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="label" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rbf_kernel_svm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rbf_kernel_svm" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
-              <item name="label" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,7 +298,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32902467" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32902467" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -366,62 +322,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/dp_mat.csv" />
-    <entry file="file://$PROJECT_DIR$/data/train/a_encoded_seq.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/train/a_encoded_seq.txt" />
     <entry file="file://$PROJECT_DIR$/cv_report">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/test/dp_mat.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/train/dp_mat.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="24">
-          <caret line="155" column="29" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/merged_data_bob.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="749">
-          <caret line="382" column="1847" selection-start-line="382" selection-start-column="1847" selection-end-line="382" selection-end-column="1847" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/merged_data_alice.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="101">
-          <caret line="355" column="1776" selection-start-line="355" selection-start-column="1776" selection-end-line="355" selection-end-column="1776" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/merged_labels_alice.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="382" column="1" selection-start-line="382" selection-start-column="1" selection-end-line="382" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/merged_labels_bob.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="382" column="1" selection-start-line="382" selection-start-column="1" selection-end-line="382" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/test/dp_mat.csv" />
+    <entry file="file://$PROJECT_DIR$/data/train/dp_mat.csv" />
+    <entry file="file://$PROJECT_DIR$/data/merged_data_bob.csv" />
+    <entry file="file://$PROJECT_DIR$/data/merged_data_alice.csv" />
+    <entry file="file://$PROJECT_DIR$/data/merged_labels_alice.txt" />
+    <entry file="file://$PROJECT_DIR$/data/merged_labels_bob.txt" />
     <entry file="file://$PROJECT_DIR$/data/merged_label/merged_labels_alice.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -450,16 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
-          <folding>
-            <element signature="e#412#434#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/merged_data/train_data.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="377">
@@ -480,16 +380,7 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/train_label.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="391">
-          <caret line="612" selection-start-line="612" selection-end-line="612" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/train_label.csv" />
     <entry file="file://$PROJECT_DIR$/data/cv_report.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -499,9 +390,33 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/linear_to_rbf_matrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7704">
+          <caret line="326" column="3" selection-start-line="326" selection-start-column="3" selection-end-line="326" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4968">
+          <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
+          <folding>
+            <element signature="e#412#434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
+        <state relative-caret-position="1440">
           <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
           <folding>
             <element signature="e#237#276#0" expanded="true" />
@@ -509,24 +424,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cross_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5961">
-          <caret line="326" column="3" lean-forward="true" selection-start-line="326" selection-start-column="3" selection-end-line="326" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linear_to_rbf_matrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rbf_kernel_svm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="67" column="61" lean-forward="true" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
+        <state relative-caret-position="967">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
           <folding>
             <element signature="e#603#656#0" expanded="true" />
           </folding>
