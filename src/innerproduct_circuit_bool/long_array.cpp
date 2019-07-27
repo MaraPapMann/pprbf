@@ -54,12 +54,12 @@ int long_array::get_long_array_len(){
             long_arr_len = long_arr_len + get_one_seg_len(file_a, file_b);
         }
     }
-    return long_arr_len;
+    return long_arr_len;  // For PutSUBSETGate.
 }
 
 
 uint16_t* long_array::get_long_arr_a(){
-    uint16_t* long_arr_a = new uint16_t[long_array_len];  // Cannot directly create an array for too large size.
+    uint16_t* long_arr_a = new uint16_t[long_array_len + 1];  // Cannot directly create an array for too large size.
     int sp = 0;
     for(int i=0; i<file_vector.size(); i++){
         string file_a = file_vector[i];
@@ -67,10 +67,10 @@ uint16_t* long_array::get_long_arr_a(){
         for(int j=i; j<file_vector.size(); j++){
             string file_b = file_vector[j];
             csv_parser* csv_b = new csv_parser(file_b, ',');
-            for(int i=0; i<csv_a->nrow; i++){
-                for(int j=0; j<csv_b->nrow; j++){
-                    for(int k=0; k<dim; k++){
-                        long_arr_a[sp + j * dim + k] = csv_a->array[i][k];
+            for(int k=0; k<csv_a->nrow; k++){
+                for(int l=0; l<csv_b->nrow; l++){
+                    for(int m=0; m<dim; m++){
+                        long_arr_a[sp + l * dim + m] = csv_a->array[k][m];
                     }
                 }
                 sp += csv_b->nrow * dim;
@@ -79,12 +79,13 @@ uint16_t* long_array::get_long_arr_a(){
         }
         delete csv_a;
     }
+    long_arr_a[long_array_len] = 0;
     return long_arr_a;
 }
 
 
 uint16_t* long_array::get_long_arr_b(){
-    uint16_t* long_arr_b = new uint16_t[long_array_len];
+    uint16_t* long_arr_b = new uint16_t[long_array_len + 1];
     int sp = 0;
     for(int i=0; i<file_vector.size(); i++){
         string file_a = file_vector[i];
@@ -92,10 +93,10 @@ uint16_t* long_array::get_long_arr_b(){
         for(int j=i; j<file_vector.size(); j++){
             string file_b = file_vector[j];
             csv_parser* csv_b = new csv_parser(file_b, ',');
-            for(int i=0; i<csv_a->nrow; i++){
-                for(int j=0; j<csv_b->nrow; j++){
-                    for(int k=0; k<dim; k++){
-                        long_arr_b[sp + j * dim + k] = csv_b->array[j][k];
+            for(int k=0; k<csv_a->nrow; k++){
+                for(int l=0; l<csv_b->nrow; l++){
+                    for(int m=0; m<dim; m++){
+                        long_arr_b[sp + l * dim + m] = csv_b->array[l][m];
                     }
                 }
                 sp += csv_b->nrow * dim;
@@ -104,6 +105,7 @@ uint16_t* long_array::get_long_arr_b(){
         }
         delete csv_a;
     }
+    long_arr_b[long_array_len] = 0;
     return long_arr_b;
 }
 

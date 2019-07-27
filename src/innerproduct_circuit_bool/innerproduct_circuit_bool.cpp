@@ -22,7 +22,6 @@
 // ABY Circuit and Sharing.
 #include "../ABY/src/abycore/ABY_utils/ABYconstants.h"
 #include "../ABY/src/abycore/circuit/booleancircuits.h"
-#include "../ABY/src/abycore/circuit/arithmeticcircuits.h"
 #include "../ABY/src/abycore/circuit/circuit.h"
 #include "../ABY/src/abycore/sharing/sharing.h"
 
@@ -43,35 +42,60 @@ using namespace std;
 
 
 share* inner_product_circuit(share *s_x, share *s_y, int num, BooleanCircuit *bc, uint16_t dim) {
+	uint16_t c = dim;
+	uint16_t r = num / dim;
 	// pairwise multiplication of all input values
 	s_x = bc->PutANDGate(s_x, s_y); // Now each nval is a value, need to be transposed so that each wire stands for one value.
-	s_x = bc->PutSplitterGate(s_x); // Transposed.
-
-	// Summing up products for each dot product.
-	for(int i=0; i< num/dim; i++)
-	{
-		int idx = i*dim;
-		for(int j=1; j<dim; j++)
-		{
-			share *temp_sum = bc->PutADDGate(s_x->get_wire_ids_as_share(idx), s_x->get_wire_ids_as_share(idx+j));
-			temp_sum = bc->PutSplitterGate(temp_sum);
-			s_x -> set_wire_id(idx, temp_sum->get_wire_id(0));
-			delete temp_sum;
+	
+	int e = 1;
+	while (e < c)
+		e = e << 1;
+	e = e >> 1;
+	uint32_t * pos1 = new uint32_t[e * r];
+	uint32_t * pos2 = new uint32_t[e * r];
+	int ind1 = 0;
+	int ind2 = 0;
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < e; j++) {
+		pos1[ind1++] = (i * c) + j;  // The first part of the segmentation.
 		}
+		// The indices in the second half part.
+		for (int j = e; j < c; j++)
+		pos2[ind2++] = (i * c) + j;  // The rest of the segmentation.
+		for (int j = c; j < (2 * e); j++)
+		pos2[ind2++] = num;  // Set the very last index to the "0".
+
 	}
 
-	// Setting dot products into the front of the share.
-	for(int i=0; i<num/dim; i++)
-	{
-		s_x->set_wire_id(i, s_x->get_wire_id(i*dim));
-	}
+	share * part1 = bc -> PutSubsetGate(s_x, pos1, e * r);
+	share * part2 = bc -> PutSubsetGate(s_x, pos2, e * r);
 
-	// Discard all unnecessary wires except for the dot products.
-	s_x->set_bitlength(num/dim);
+	delete[] pos1;
+	delete[] pos2;
+
+	s_x = bc -> PutADDGate(part1, part2);
+	e = e >> 1;
+	while (e >= 1) {
+		uint32_t * p1 = new uint32_t[e * r];
+		uint32_t * p2 = new uint32_t[e * r];
+		for (int i = 0; i < r; i++) {
+		for (int j = 0; j < e; j++) {
+			p1[(i * e) + j] = ((i * e * 2) + j);
+		}
+		for (int j = e; j < (2 * e); j++)
+			p2[(i * e) + (j - e)] = (i * e * 2) + j;
+		}
+		part1 = bc -> PutSubsetGate(s_x, p1, e * r);
+		part2 = bc -> PutSubsetGate(s_x, p2, e * r);
+
+		delete[] p1;
+		delete[] p2;
+		s_x = bc -> PutADDGate(part1, part2);
+
+		e = e >> 1;
+	}
 
 	return s_x;
-	delete s_x;
-	delete s_y;
 }
 
 // Need input vector xvals & yvals
@@ -83,6 +107,7 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 	uint32_t* res_arr = new uint32_t[two_long_arrays->res_array_length];
 	// Length of one segmentation.
 	int seg_len = (two_long_arrays->long_array_len % seg_len_limit / two_long_arrays->dim) * two_long_arrays->dim;
+	cout<<"Segmentation Length: "<<seg_len<<endl;
 	// Number of segmentations.
 	int seg_num = two_long_arrays->long_array_len / seg_len;
 	
@@ -92,7 +117,6 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 	int res_sp = 0;
 
 	
-
 	for(int i=0; i<seg_num; i++){
 		// Initiation of the ABY party.
 		ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads, mt_alg);
@@ -200,13 +224,13 @@ int main(int argc, char** argv) {
 
 	// Basic parameters.
 	e_role role;
-	uint16_t bitlen = 6, nvals = 128, secparam = 128, nthreads = 1;
+	uint16_t bitlen = 1, nvals = 128, secparam = 128, nthreads = 1;
 	uint16_t port = 7766;
 	std::string address = "127.0.0.1";
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
-	string dir = "/home/chen/Git_repositories/pprbf/src/data/bitlen_1/";
-	int seg_len_limit = 5000000;
+	string dir = "/home/chen/Git_repositories/pprbf/src/data/probe/";
+	int seg_len_limit = 1000000;
 
 	// Parse command line.
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);

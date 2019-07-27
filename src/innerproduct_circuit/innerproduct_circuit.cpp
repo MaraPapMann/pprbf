@@ -123,6 +123,8 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 			// Put shared data as SIMD share in gate.
 			s_x_vec = circ->PutSharedSIMDINGate(seg_len, long_arr_a_in_seg, bitlen);
 			s_y_vec = circ->PutSharedSIMDINGate(seg_len, long_arr_b_in_seg, bitlen);
+			delete[] long_arr_a_in_seg;
+			delete[] long_arr_b_in_seg;
 
 			// Call the inner product circuit function.
 			s_out = inner_product_circuit(s_x_vec, s_y_vec, seg_len, circ, two_long_arrays->dim);
@@ -140,6 +142,8 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 			// Put shared data as SIMD share in gate.
 			s_x_vec = circ->PutSharedSIMDINGate(last_seg_len, long_arr_a_in_seg, bitlen);
 			s_y_vec = circ->PutSharedSIMDINGate(last_seg_len, long_arr_b_in_seg, bitlen);
+			delete[] long_arr_a_in_seg;
+			delete[] long_arr_b_in_seg;
 
 			// Call the inner product circuit function.
 			s_out = inner_product_circuit(s_x_vec, s_y_vec, last_seg_len, circ, two_long_arrays->dim);

@@ -9,6 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../ABY/src/abycore/CMakeLists.txt"
   "../CMakeLists.txt"
+  "../arith_innerproduct_test/CMakeLists.txt"
   "../bool_innerproduct_test/CMakeLists.txt"
   "CMakeFiles/3.13.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.13.4/CMakeSystem.cmake"
@@ -66,6 +67,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "ABY/src/abycore/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "arith_innerproduct_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bool_innerproduct_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_bool/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_bool_probe/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -75,6 +77,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "ABY/src/abycore/CMakeFiles/aby.dir/DependInfo.cmake"
   "innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/DependInfo.cmake"
+  "arith_innerproduct_test/CMakeFiles/arith_innerproduct.exe.dir/DependInfo.cmake"
   "bool_innerproduct_test/CMakeFiles/bool_innerproduct.exe.dir/DependInfo.cmake"
   "innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/DependInfo.cmake"
   "innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/DependInfo.cmake"

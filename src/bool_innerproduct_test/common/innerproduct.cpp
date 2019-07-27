@@ -17,7 +17,7 @@ int32_t test_inner_product_circuit(e_role role, char * address, uint16_t port, s
 
   uint32_t num = r * c;
 
-  uint8_t * xvals = (uint8_t * ) malloc((num + 1) * sizeof(uint8_t));
+  uint8_t * xvals = (uint8_t * ) malloc((num + 1) * sizeof(uint8_t));  // Num + 1 is for the magic number "0".
   uint8_t * yvals = (uint8_t * ) malloc((num + 1) * sizeof(uint8_t));
 
   uint32_t i;
@@ -29,19 +29,19 @@ int32_t test_inner_product_circuit(e_role role, char * address, uint16_t port, s
     x = rand() % 2;
     xvals[i] = x;
   }
-  xvals[num] = 0;
+  xvals[num] = 0;  // For the use of PutSUBSETGate.
   for (i = 0; i < num; i++) {
     y = rand() % 2;
     yvals[i] = y;
   }
-  yvals[num] = 0;
+  yvals[num] = 0;  // For the use of PutSUBSETGate.
 
   s_x_vec = circ -> PutSharedSIMDINGate(num + 1, xvals, bitlen);
   s_y_vec = circ -> PutSharedSIMDINGate(num + 1, yvals, bitlen);
 
   res = circ -> PutANDGate(s_x_vec, s_y_vec);
 
-
+  
   int e = 1;
   while (e < c)
     e = e << 1;
@@ -52,12 +52,13 @@ int32_t test_inner_product_circuit(e_role role, char * address, uint16_t port, s
   int ind2 = 0;
   for (int i = 0; i < r; i++) {
     for (int j = 0; j < e; j++) {
-      pos1[ind1++] = (i * c) + j;
+      pos1[ind1++] = (i * c) + j;  // The first part of the segmentation.
     }
+    // The indices in the second half part.
     for (int j = e; j < c; j++)
-      pos2[ind2++] = (i * c) + j;
+      pos2[ind2++] = (i * c) + j;  // The rest of the segmentation.
     for (int j = c; j < (2 * e); j++)
-      pos2[ind2++] = num;
+      pos2[ind2++] = num;  // Set the very last index to the "0".
 
   }
 
@@ -87,9 +88,9 @@ int32_t test_inner_product_circuit(e_role role, char * address, uint16_t port, s
     res = circ -> PutADDGate(part1, part2);
 
     e = e >> 1;
-
   }
-
+  
+ 
   res = circ -> PutSharedOUTGate(res);
 
   party -> ExecCircuit();
