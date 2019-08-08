@@ -19,6 +19,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../innerproduct_circuit/CMakeLists.txt"
   "../innerproduct_circuit_bool/CMakeLists.txt"
   "../innerproduct_circuit_bool_probe/CMakeLists.txt"
+  "../self_dot_product/CMakeLists.txt"
   "/usr/local/lib/cmake/ENCRYPTO_utils/ENCRYPTO_utilsConfig.cmake"
   "/usr/local/lib/cmake/ENCRYPTO_utils/ENCRYPTO_utilsTargets-release.cmake"
   "/usr/local/lib/cmake/ENCRYPTO_utils/ENCRYPTO_utilsTargets.cmake"
@@ -71,6 +72,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "bool_innerproduct_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_bool/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_bool_probe/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "self_dot_product/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -81,4 +83,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "bool_innerproduct_test/CMakeFiles/bool_innerproduct.exe.dir/DependInfo.cmake"
   "innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/DependInfo.cmake"
   "innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/DependInfo.cmake"
+  "self_dot_product/CMakeFiles/self_dot_product.exe.dir/DependInfo.cmake"
   )

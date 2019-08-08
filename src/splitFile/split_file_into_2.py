@@ -23,7 +23,6 @@ def get_all_files_in_dir(dir):
 # Interp. Encrypt the given file, split the file into two files.
 def split_file(in_file, bit_length):
     """
-
     :param in_file:
     :param bit_length:
     :return:
@@ -137,8 +136,8 @@ if __name__ == '__main__':
     #   print(files)    Tested
     for file in files:  # Map to all files
         lst_1, lst_2 = split_file(file, int(bit_length))
-        write_csv(lst_1, file + "_split_1.csv")
-        write_csv(lst_2, file + "_split_2.csv")
+        write_csv(lst_1, file + "_cross_dp_split_1.csv")
+        write_csv(lst_2, file + "_cross_dp_split_2.csv")
     #   in_file = pd.read_csv("./probe_1.csv", header=None) Tested
     #   print(input.shape)   Tested
     #   lst_1, lst_2 = split_file(in_file, 8)   Tested

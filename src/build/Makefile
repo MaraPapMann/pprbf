@@ -234,6 +234,19 @@ innerproduct_bool_probe.exe/fast:
 	$(MAKE) -f innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build.make innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build
 .PHONY : innerproduct_bool_probe.exe/fast
 
+#=============================================================================
+# Target rules for targets named self_dot_product.exe
+
+# Build rule for target.
+self_dot_product.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 self_dot_product.exe
+.PHONY : self_dot_product.exe
+
+# fast build rule for target.
+self_dot_product.exe/fast:
+	$(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/build
+.PHONY : self_dot_product.exe/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +265,7 @@ help:
 	@echo "... bool_innerproduct.exe"
 	@echo "... innerproduct_bool.exe"
 	@echo "... innerproduct_bool_probe.exe"
+	@echo "... self_dot_product.exe"
 .PHONY : help
 
 

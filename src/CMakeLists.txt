@@ -66,6 +66,7 @@ add_subdirectory(arith_innerproduct_test)
 add_subdirectory(bool_innerproduct_test)
 add_subdirectory(innerproduct_circuit_bool)
 add_subdirectory(innerproduct_circuit_bool_probe)
+add_subdirectory(self_dot_product)
 
 
 if(ABY_BUILD_EXE)

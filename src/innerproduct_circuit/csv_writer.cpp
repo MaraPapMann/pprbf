@@ -147,7 +147,7 @@ void csv_writer::write_matrix_into_csv(string out_file){
             csv << dp_mat[i][j];
             if (j != dp_mat[0].size() - 1)
             {
-                csv << ", ";  // End of col.
+                csv << ",";  // End of col.
             }
         }
         if(i != dp_mat.size() - 1)

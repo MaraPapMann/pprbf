@@ -57,6 +57,9 @@ private:
     // Get long array b.
     uint16_t* get_long_arr_b();
 
+    // Get segmentations' length vector.
+    vector<int> get_seg_len_vec();
+
 public:
     // Initiator.
     long_array(string path, e_role role):
@@ -81,5 +84,8 @@ public:
 
     // Result array length.
     int res_array_length = long_array_len / dim;
+
+    // Segmentations' length vector.
+    vector<int> seg_len_vec = long_array::get_seg_len_vec();
 };
 

@@ -8,6 +8,7 @@ int32_t test_inner_product_circuit(e_role role, char * address, uint16_t port, s
     mt_alg);
 
   vector<Sharing*>&sharings = party -> GetSharings();
+  sharings[S_BOOL]->SetPreCompPhaseValue(ePreCompPhase::ePreCompRead);
 
   BooleanCircuit *circ = (BooleanCircuit*) sharings[sharing] -> GetCircuitBuildRoutine();
 
