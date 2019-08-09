@@ -64,7 +64,7 @@ uint16_t* long_array::get_long_arr_a()
 {
     uint16_t* long_arr_a = new uint16_t[long_array_len];  // Cannot directly create an array for too large size.
     int sp = 0;
-    for(int i=0; i<file_vector.size(); i++)
+    for(int i=0; i<file_vector.size()-1; i++)
     {
         string file_a = file_vector[i];
         csv_parser* csv_a = new csv_parser(file_a, ',');
@@ -95,7 +95,7 @@ uint16_t* long_array::get_long_arr_b()
 {
     uint16_t* long_arr_b = new uint16_t[long_array_len];
     int sp = 0;
-    for(int i=0; i<file_vector.size(); i++)
+    for(int i=0; i<file_vector.size()-1; i++)
     {
         string file_a = file_vector[i];
         csv_parser* csv_a = new csv_parser(file_a, ',');
@@ -134,18 +134,19 @@ vector<int> long_array::get_row_nums_vec()
 vector<int> long_array::get_seg_len_vec()
 {
     vector<int> seg_len_vec;
-    for(int i=0; i<file_vector.size(); i++)
+    for(int i=0; i<file_vector.size()-1; i++)
     {
         string file_a = file_vector[i];
         int seg_len = 0;
         for(int j=i+1; j<file_vector.size(); j++){
             string file_b = file_vector[j];
-            seg_len = seg_len + get_one_seg_len(file_a, file_b);
+            seg_len = seg_len + get_one_seg_len(file_a, file_b) / dim;
         }
         seg_len_vec.push_back(seg_len);
     }
     return seg_len_vec;
 }
+
 
 /* 
 int main()

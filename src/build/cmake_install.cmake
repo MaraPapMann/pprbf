@@ -40,7 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/chen/Git_repositories/pprbf/src/build/ABY/src/abycore/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit/cmake_install.cmake")
+  include("/home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith/cmake_install.cmake")
   include("/home/chen/Git_repositories/pprbf/src/build/arith_innerproduct_test/cmake_install.cmake")
   include("/home/chen/Git_repositories/pprbf/src/build/bool_innerproduct_test/cmake_install.cmake")
   include("/home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool/cmake_install.cmake")

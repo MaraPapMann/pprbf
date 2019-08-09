@@ -170,17 +170,17 @@ aby/fast:
 .PHONY : aby/fast
 
 #=============================================================================
-# Target rules for targets named innerproduct.exe
+# Target rules for targets named innerproduct_arith.exe
 
 # Build rule for target.
-innerproduct.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 innerproduct.exe
-.PHONY : innerproduct.exe
+innerproduct_arith.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 innerproduct_arith.exe
+.PHONY : innerproduct_arith.exe
 
 # fast build rule for target.
-innerproduct.exe/fast:
-	$(MAKE) -f innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build.make innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build
-.PHONY : innerproduct.exe/fast
+innerproduct_arith.exe/fast:
+	$(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build
+.PHONY : innerproduct_arith.exe/fast
 
 #=============================================================================
 # Target rules for targets named arith_innerproduct.exe
@@ -260,7 +260,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... aby"
-	@echo "... innerproduct.exe"
+	@echo "... innerproduct_arith.exe"
 	@echo "... arith_innerproduct.exe"
 	@echo "... bool_innerproduct.exe"
 	@echo "... innerproduct_bool.exe"

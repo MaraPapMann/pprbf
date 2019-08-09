@@ -188,14 +188,12 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 
 		party->Reset();
 	}
-	return res_arr;
 	delete party;
 	delete s_x_vec;
 	delete s_y_vec;
 	delete s_out;
-	delete long_arr_a_in_seg;
-	delete long_arr_b_in_seg;
-	delete out_vals;
+
+	return res_arr;
 }
 
 
@@ -210,29 +208,36 @@ uint32_t *self_dp_circuit(e_role role, const std::string& address, uint16_t port
 	// Build the corresponding circuit according to the sharing type.
 	ArithmeticCircuit* circ = (ArithmeticCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
 	// Sharings.
-	share *s_x_vec, *s_out;
+	share *s_x_vec;
 
 	s_x_vec = circ->PutSharedSIMDINGate(self_dp_vec->self_dp_vec_len, self_dp_vec->self_dp_vec.data(), bitlen);
-
+	
 	// Output the share.
-	s_out = circ -> PutOUTGate(s_out, ALL);
+	s_x_vec = circ->PutOUTGate(s_x_vec, ALL);
+
+	party->ExecCircuit();
 
 	// Receive final result as an array.
 	uint32_t *out_vals, out_bitlen, out_nvals;
-	s_out->get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
 
+	s_x_vec->get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
+	party->Reset();
 	return out_vals;
 }
 
 
 uint32_t *integrate_cross_self_dp_arr(uint32_t *cross_dp_arr, uint32_t *self_dp_arr, long_array *two_long_arrays, self_dot_product_vector *self_dp_vec)
 {
-	uint32_t *res_arr_final = new uint32_t[two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len];
+	int res_arr_fin_len = two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len;
+	cout<<"len: "<<res_arr_fin_len<<endl;
+	uint32_t *res_arr_final = new uint32_t[res_arr_fin_len];
 	vector<uint32_t> mediator_vec;
 	int cross_sp = 0;
 	int self_sp = 0;
+	cout<<"seg_len_vec_size: "<<two_long_arrays->seg_len_vec.size()<<endl;
 	for(int i=0; i<two_long_arrays->seg_len_vec.size(); i++)  // seg_len_vec.size() + 1 = dim_vec.size()
 	{
+		cout<<two_long_arrays->seg_len_vec[i]<<",";
 		for(int j=0; j<self_dp_vec->dim_vec[i]; j++)
 		{
 			mediator_vec.push_back(self_dp_arr[self_sp + j]);
@@ -251,7 +256,10 @@ uint32_t *integrate_cross_self_dp_arr(uint32_t *cross_dp_arr, uint32_t *self_dp_
 		mediator_vec.push_back(self_dp_arr[self_sp + i]);
 	}
 
-	res_arr_final = mediator_vec.data();
+	for(int i=0; i<two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len; i++)
+	{
+		res_arr_final[i] = mediator_vec[i];
+	}
 
 	return res_arr_final;
 }
@@ -289,15 +297,22 @@ int main(int argc, char** argv) {
 
 	// Create self dot product vector.
 	self_dot_product_vector *self_dp_vec = new self_dot_product_vector(dir, role);
+	cout<<"Self dot product vector constructed."<<endl;
 
 	// Get output self dot product array, call self dot product circuit.
 	uint32_t *self_dp_arr = self_dp_circuit(role, address, port, seclvl, nvals, bitlen, nthreads, mt_alg, S_ARITH, self_dp_vec);
+	cout<<"Self dot product array calculated."<<endl;
 
 	// Integrate cross and self dot products into one final result array.
 	uint32_t *res_arr_final = integrate_cross_self_dp_arr(cross_dp_arr, self_dp_arr, two_long_arrays, self_dp_vec);
+	cout<<"Final result array got."<<endl; // Something wrong with the final array.
+	for(int i=0; i<20667; i++)
+	{
+		cout<<res_arr_final[i]<<",";
+	}
 
 	// Write the dot product matrix into csv file.
-	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length, two_long_arrays->row_nums);
+	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len, two_long_arrays->row_nums);
 	csv_to_write->write_matrix_into_csv(dir + "./dp_mat.csv");
 	cout<<"CSV file written."<<endl;
 	delete two_long_arrays;

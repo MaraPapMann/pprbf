@@ -120,57 +120,57 @@ clean: ABY/src/abycore/CMakeFiles/aby.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory innerproduct_circuit
+# Directory level rules for directory innerproduct_circuit_arith
 
 # Convenience name for "all" pass in the directory.
-innerproduct_circuit/all: innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/all
+innerproduct_circuit_arith/all: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/all
 
-.PHONY : innerproduct_circuit/all
+.PHONY : innerproduct_circuit_arith/all
 
 # Convenience name for "clean" pass in the directory.
-innerproduct_circuit/clean: innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/clean
+innerproduct_circuit_arith/clean: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/clean
 
-.PHONY : innerproduct_circuit/clean
+.PHONY : innerproduct_circuit_arith/clean
 
 # Convenience name for "preinstall" pass in the directory.
-innerproduct_circuit/preinstall:
+innerproduct_circuit_arith/preinstall:
 
-.PHONY : innerproduct_circuit/preinstall
+.PHONY : innerproduct_circuit_arith/preinstall
 
 #=============================================================================
-# Target rules for target innerproduct_circuit/CMakeFiles/innerproduct.exe.dir
+# Target rules for target innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir
 
 # All Build rule for target.
-innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/all: ABY/src/abycore/CMakeFiles/aby.dir/all
-	$(MAKE) -f innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build.make innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/depend
-	$(MAKE) -f innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build.make innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=24,25,26,27,28,29 "Built target innerproduct.exe"
-.PHONY : innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/all
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/all: ABY/src/abycore/CMakeFiles/aby.dir/all
+	$(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/depend
+	$(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=24,25,26,27,28,29,30 "Built target innerproduct_arith.exe"
+.PHONY : innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/all
 
 # Include target in all.
-all: innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/all
+all: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Git_repositories/pprbf/src/build/CMakeFiles 23
-	$(MAKE) -f CMakeFiles/Makefile2 innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/all
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Git_repositories/pprbf/src/build/CMakeFiles 24
+	$(MAKE) -f CMakeFiles/Makefile2 innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Git_repositories/pprbf/src/build/CMakeFiles 0
-.PHONY : innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/rule
+.PHONY : innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/rule
 
 # Convenience name for target.
-innerproduct.exe: innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/rule
+innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/rule
 
-.PHONY : innerproduct.exe
-
-# clean rule for target.
-innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/clean:
-	$(MAKE) -f innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/build.make innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/clean
-.PHONY : innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/clean
+.PHONY : innerproduct_arith.exe
 
 # clean rule for target.
-clean: innerproduct_circuit/CMakeFiles/innerproduct.exe.dir/clean
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/clean:
+	$(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/clean
+.PHONY : innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/clean
+
+# clean rule for target.
+clean: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/clean
 
 .PHONY : clean
 
@@ -309,7 +309,7 @@ innerproduct_circuit_bool/preinstall:
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/all: ABY/src/abycore/CMakeFiles/aby.dir/all
 	$(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/depend
 	$(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=30,31,32,33,34,35 "Built target innerproduct_bool.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=31,32,33,34,35,36 "Built target innerproduct_bool.exe"
 .PHONY : innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/all
 
 # Include target in all.
@@ -364,7 +364,7 @@ innerproduct_circuit_bool_probe/preinstall:
 innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/all: ABY/src/abycore/CMakeFiles/aby.dir/all
 	$(MAKE) -f innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build.make innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/depend
 	$(MAKE) -f innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build.make innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=36,37,38 "Built target innerproduct_bool_probe.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=37,38,39 "Built target innerproduct_bool_probe.exe"
 .PHONY : innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/all
 
 # Include target in all.
@@ -419,7 +419,7 @@ self_dot_product/preinstall:
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/all: ABY/src/abycore/CMakeFiles/aby.dir/all
 	$(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/depend
 	$(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=39,40,41 "Built target self_dot_product.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=40,41,42 "Built target self_dot_product.exe"
 .PHONY : self_dot_product/CMakeFiles/self_dot_product.exe.dir/all
 
 # Include target in all.

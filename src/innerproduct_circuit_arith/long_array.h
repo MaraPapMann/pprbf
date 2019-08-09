@@ -16,6 +16,9 @@
  *      6.  res_array_length: result array length.
  */
 
+#ifndef LONG_ARRAY_
+#define LONG_ARRAY_
+
 #include <vector>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
@@ -89,3 +92,4 @@ public:
     vector<int> seg_len_vec = long_array::get_seg_len_vec();
 };
 
+#endif

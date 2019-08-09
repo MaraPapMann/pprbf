@@ -48,7 +48,7 @@ vector<uint16_t> self_dot_product_vector::get_long_vec()
     for(int i=0; i<file_vector.size(); i++){
         string file = file_vector[i];
         csv_parser* csv = new csv_parser(file, ',');
-        for(int j=0; j<csv->nrow; i++)
+        for(int j=0; j<csv->nrow; j++)
         {
             for(int k=0; k<dim_vec[i]; k++)
             {

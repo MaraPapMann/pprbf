@@ -12,6 +12,8 @@
  * 		3.	ncol: column number of this file.
  */
 
+#ifndef CSV_PARSER_
+#define CSV_PARSER_
 
 #include <fstream>
 #include <string>
@@ -53,3 +55,5 @@ public:
 	uint16_t** array = csv_parser::get_data_as_array();
 
 };
+
+#endif

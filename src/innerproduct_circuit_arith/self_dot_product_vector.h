@@ -15,6 +15,8 @@
  *      5.  row_nums: Vector containing row numbers;
  *      6.  res_array_length: result array length.
  */
+#ifndef SELF_DOT_PRODUCT_VECTOR_
+#define SELF_DOT_PRODUCT_VECTOR_
 
 #include <vector>
 #include <ENCRYPTO_utils/crypto/crypto.h>
@@ -23,7 +25,6 @@
 #include "csv_parser.h"
 #include <sys/types.h>
 #include <dirent.h>
-#include <algorithm>
 #include <iterator>
 
 class self_dot_product_vector
@@ -31,9 +32,6 @@ class self_dot_product_vector
 private:
     string path; // Path to the target directoty.
     e_role role; // Role: SERVER or CLIENT.
-    
-    // Get row numbers of all files into a vector.
-    vector<int> get_row_nums_vec();
 
     // Get all files' paths in given directory into a vector.
     vector<string> get_all_file_in_dir();
@@ -43,15 +41,12 @@ private:
 
     // Get dimension of one single vector in all files (column number).
     vector<int> get_dim_vec();
-    
-    // Get the length of long array.
-    int get_self_dp_vec_len();
 
     // Get long vector.
     vector<uint16_t> get_long_vec();
 
-    // Get segmentations' length vector.
-    vector<int> get_seg_len_vec();
+    // Get the length of long array.
+    int get_self_dp_vec_len();
 
 public:
     // Initiator.
@@ -62,17 +57,13 @@ public:
 
     // Dimension(column number).
     vector<int> dim_vec = self_dot_product_vector::get_dim_vec();
-    
+
     // Length of the long array.
     int self_dp_vec_len = self_dot_product_vector::get_self_dp_vec_len();
-    
+
     // Long array a.
     vector<uint16_t> self_dp_vec = self_dot_product_vector::get_long_vec();
-    
-    // Vector containing row numbers.
-    vector<int> row_nums = self_dot_product_vector::get_row_nums_vec();
-
-    // Segmentations' length vector.
-    vector<int> seg_len_vec = self_dot_product_vector::get_seg_len_vec();
 
 };
+
+#endif
