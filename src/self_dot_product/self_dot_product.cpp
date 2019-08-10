@@ -114,9 +114,11 @@ void self_dot_product::output_csv_files(string out_file)
 }
 
 
-int main()
+int main(int argc, char** argv)
 {
-    self_dot_product *s_dp = new self_dot_product("../data/probe/");
+    string dir = "../data/probe/";
+    read_test_options(&argc, &argv, &dir);
+    self_dot_product *s_dp = new self_dot_product(dir);
     
     s_dp->output_csv_files("self_dp");
 }

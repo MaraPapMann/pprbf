@@ -1,0 +1,2 @@
+add_executable(benchmark_arith_innerproduct.exe innerproduct_test.cpp common/innerproduct.cpp)
+target_link_libraries(benchmark_arith_innerproduct.exe ABY::aby ENCRYPTO_utils::encrypto_utils)

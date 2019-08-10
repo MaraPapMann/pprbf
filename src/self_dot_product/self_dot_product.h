@@ -10,12 +10,14 @@
  *  @Output:
  *      1. csv files containing dot-products.
  */
-
+#ifndef SELF_DOT_PRODUCT_
+#define SELF_DOT_PRODUCT_
 
 #include <vector>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
 #include "csv_parser.h"
+#include "read_test_options.h"
 #include <sys/types.h>
 #include <dirent.h>
 #include <iterator>
@@ -58,3 +60,5 @@ public:
     // Write the results into csv files.
     void output_csv_files(string out_file);
 };
+
+#endif

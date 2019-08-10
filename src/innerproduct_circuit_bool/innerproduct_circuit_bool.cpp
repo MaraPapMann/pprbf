@@ -37,6 +37,7 @@
 #include "read_test_options.h"
 #include "long_array.h"
 #include "csv_writer.h"
+#include "self_dot_product_vector.h"
 
 using namespace std;
 
@@ -97,6 +98,7 @@ share* inner_product_circuit(share *s_x, share *s_y, int num, BooleanCircuit *bc
 
 	return s_x;
 }
+
 
 // Need input vector xvals & yvals
 uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port, seclvl seclvl,
@@ -220,6 +222,74 @@ uint32_t* general_circuit(e_role role, const std::string& address, uint16_t port
 }
 
 
+uint32_t *self_dp_circuit(e_role role, const std::string& address, uint16_t port, seclvl seclvl,
+		uint16_t nvals, uint16_t bitlen, uint16_t nthreads, e_mt_gen_alg mt_alg,
+		e_sharing sharing, self_dot_product_vector *self_dp_vec)
+{
+	// Initiation of the ABY party.
+	ABYParty* party = new ABYParty(role, address, port, seclvl, bitlen, nthreads, mt_alg);
+	// Get sharings.
+	vector<Sharing*>& sharings = party->GetSharings();
+	// Build the corresponding circuit according to the sharing type.
+	BooleanCircuit* circ = (BooleanCircuit*) sharings[sharing]->GetCircuitBuildRoutine();
+	// Sharings.
+	share *s_x_vec;
+
+	s_x_vec = circ->PutSharedSIMDINGate(self_dp_vec->self_dp_vec_len, self_dp_vec->self_dp_vec.data(), bitlen);
+	
+	// Output the share.
+	s_x_vec = circ->PutOUTGate(s_x_vec, ALL);
+
+	party->ExecCircuit();
+
+	// Receive final result as an array.
+	uint32_t *out_vals, out_bitlen, out_nvals;
+
+	s_x_vec->get_clear_value_vec(&out_vals, &out_bitlen, &out_nvals);
+	party->Reset();
+	return out_vals;
+}
+
+
+uint32_t *integrate_cross_self_dp_arr(uint32_t *cross_dp_arr, uint32_t *self_dp_arr, long_array *two_long_arrays, self_dot_product_vector *self_dp_vec)
+{
+	int res_arr_fin_len = two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len;
+	cout<<"len: "<<res_arr_fin_len<<endl;
+	uint32_t *res_arr_final = new uint32_t[res_arr_fin_len];
+	vector<uint32_t> mediator_vec;
+	int cross_sp = 0;
+	int self_sp = 0;
+	cout<<"seg_len_vec_size: "<<two_long_arrays->seg_len_vec.size()<<endl;
+	for(int i=0; i<two_long_arrays->seg_len_vec.size(); i++)  // seg_len_vec.size() + 1 = dim_vec.size()
+	{
+		cout<<two_long_arrays->seg_len_vec[i]<<",";
+		for(int j=0; j<self_dp_vec->dim_vec[i]; j++)
+		{
+			mediator_vec.push_back(self_dp_arr[self_sp + j]);
+		}
+		self_sp = self_sp + self_dp_vec->dim_vec[i];
+
+		for(int j=0; j<two_long_arrays->seg_len_vec[i]; j++)
+		{
+			mediator_vec.push_back(cross_dp_arr[cross_sp + j]);
+		}
+		cross_sp = cross_sp + two_long_arrays->seg_len_vec[i];
+	}
+
+	// The very last part.
+	for(int i=0; i<self_dp_vec->dim_vec.back(); i++){
+		mediator_vec.push_back(self_dp_arr[self_sp + i]);
+	}
+
+	for(int i=0; i<two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len; i++)
+	{
+		res_arr_final[i] = mediator_vec[i];
+	}
+
+	return res_arr_final;
+}
+
+
 int main(int argc, char** argv) {
 
 	// Basic parameters.
@@ -230,7 +300,7 @@ int main(int argc, char** argv) {
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
 	string dir = "/home/chen/Git_repositories/pprbf/src/data/probe/";
-	int seg_len_limit = 1000000;
+	int seg_len_limit = 100000000;
 
 	// Parse command line.
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
@@ -247,11 +317,23 @@ int main(int argc, char** argv) {
 	cout<<"Long array length: "<<two_long_arrays->long_array_len<<endl;
 
 	// call inner product routine. set size with cmd-parameter -n <size>
-	uint32_t* res_arr_final = general_circuit(role, address, port, seclvl, nvals, bitlen, nthreads, mt_alg, S_BOOL, two_long_arrays, seg_len_limit);
-	cout<<"Dot product calculted."<<endl;
+	uint32_t* cross_dp_arr = general_circuit(role, address, port, seclvl, nvals, bitlen, nthreads, mt_alg, S_BOOL, two_long_arrays, seg_len_limit);
+	cout<<"Cross dot product calculted."<<endl;
+
+	// Create self dot product vector.
+	self_dot_product_vector *self_dp_vec = new self_dot_product_vector(dir, role);
+	cout<<"Self dot product vector constructed."<<endl;
+
+	// Get output self dot product array, call self dot product circuit.
+	uint32_t *self_dp_arr = self_dp_circuit(role, address, port, seclvl, nvals, 8, nthreads, mt_alg, S_ARITH, self_dp_vec);
+	cout<<"Self dot product array calculated."<<endl;
+
+	// Integrate cross and self dot products into one final result array.
+	uint32_t *res_arr_final = integrate_cross_self_dp_arr(cross_dp_arr, self_dp_arr, two_long_arrays, self_dp_vec);
+	cout<<"Final result array got."<<endl; // Something wrong with the final array.
 
 	// Write the dot product matrix into csv file.
-	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length, two_long_arrays->row_nums);
+	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len, two_long_arrays->row_nums);
 	csv_to_write->write_matrix_into_csv(dir + "./dp_mat.csv");
 	cout<<"CSV file written."<<endl;
 	delete two_long_arrays;

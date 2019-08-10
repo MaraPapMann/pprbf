@@ -225,32 +225,32 @@ csv_writer.cpp.s:
 	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/csv_writer.cpp.s
 .PHONY : csv_writer.cpp.s
 
-innerproduct_circuit.o: innerproduct_circuit.cpp.o
+innerproduct_circuit_arith.o: innerproduct_circuit_arith.cpp.o
 
-.PHONY : innerproduct_circuit.o
+.PHONY : innerproduct_circuit_arith.o
 
 # target to build an object file
-innerproduct_circuit.cpp.o:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o
-.PHONY : innerproduct_circuit.cpp.o
+innerproduct_circuit_arith.cpp.o:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o
+.PHONY : innerproduct_circuit_arith.cpp.o
 
-innerproduct_circuit.i: innerproduct_circuit.cpp.i
+innerproduct_circuit_arith.i: innerproduct_circuit_arith.cpp.i
 
-.PHONY : innerproduct_circuit.i
+.PHONY : innerproduct_circuit_arith.i
 
 # target to preprocess a source file
-innerproduct_circuit.cpp.i:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.i
-.PHONY : innerproduct_circuit.cpp.i
+innerproduct_circuit_arith.cpp.i:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.i
+.PHONY : innerproduct_circuit_arith.cpp.i
 
-innerproduct_circuit.s: innerproduct_circuit.cpp.s
+innerproduct_circuit_arith.s: innerproduct_circuit_arith.cpp.s
 
-.PHONY : innerproduct_circuit.s
+.PHONY : innerproduct_circuit_arith.s
 
 # target to generate assembly for a file
-innerproduct_circuit.cpp.s:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.s
-.PHONY : innerproduct_circuit.cpp.s
+innerproduct_circuit_arith.cpp.s:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/build.make innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.s
+.PHONY : innerproduct_circuit_arith.cpp.s
 
 long_array.o: long_array.cpp.o
 
@@ -352,9 +352,9 @@ help:
 	@echo "... csv_writer.o"
 	@echo "... csv_writer.i"
 	@echo "... csv_writer.s"
-	@echo "... innerproduct_circuit.o"
-	@echo "... innerproduct_circuit.i"
-	@echo "... innerproduct_circuit.s"
+	@echo "... innerproduct_circuit_arith.o"
+	@echo "... innerproduct_circuit_arith.i"
+	@echo "... innerproduct_circuit_arith.s"
 	@echo "... long_array.o"
 	@echo "... long_array.i"
 	@echo "... long_array.s"

@@ -183,30 +183,30 @@ innerproduct_arith.exe/fast:
 .PHONY : innerproduct_arith.exe/fast
 
 #=============================================================================
-# Target rules for targets named arith_innerproduct.exe
+# Target rules for targets named benchmark_arith_innerproduct.exe
 
 # Build rule for target.
-arith_innerproduct.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arith_innerproduct.exe
-.PHONY : arith_innerproduct.exe
+benchmark_arith_innerproduct.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 benchmark_arith_innerproduct.exe
+.PHONY : benchmark_arith_innerproduct.exe
 
 # fast build rule for target.
-arith_innerproduct.exe/fast:
-	$(MAKE) -f arith_innerproduct_test/CMakeFiles/arith_innerproduct.exe.dir/build.make arith_innerproduct_test/CMakeFiles/arith_innerproduct.exe.dir/build
-.PHONY : arith_innerproduct.exe/fast
+benchmark_arith_innerproduct.exe/fast:
+	$(MAKE) -f benchmark_arith_innerproduct/CMakeFiles/benchmark_arith_innerproduct.exe.dir/build.make benchmark_arith_innerproduct/CMakeFiles/benchmark_arith_innerproduct.exe.dir/build
+.PHONY : benchmark_arith_innerproduct.exe/fast
 
 #=============================================================================
-# Target rules for targets named bool_innerproduct.exe
+# Target rules for targets named benchmark_bool_innerproduct.exe
 
 # Build rule for target.
-bool_innerproduct.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bool_innerproduct.exe
-.PHONY : bool_innerproduct.exe
+benchmark_bool_innerproduct.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 benchmark_bool_innerproduct.exe
+.PHONY : benchmark_bool_innerproduct.exe
 
 # fast build rule for target.
-bool_innerproduct.exe/fast:
-	$(MAKE) -f bool_innerproduct_test/CMakeFiles/bool_innerproduct.exe.dir/build.make bool_innerproduct_test/CMakeFiles/bool_innerproduct.exe.dir/build
-.PHONY : bool_innerproduct.exe/fast
+benchmark_bool_innerproduct.exe/fast:
+	$(MAKE) -f benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build.make benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build
+.PHONY : benchmark_bool_innerproduct.exe/fast
 
 #=============================================================================
 # Target rules for targets named innerproduct_bool.exe
@@ -220,19 +220,6 @@ innerproduct_bool.exe: cmake_check_build_system
 innerproduct_bool.exe/fast:
 	$(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build
 .PHONY : innerproduct_bool.exe/fast
-
-#=============================================================================
-# Target rules for targets named innerproduct_bool_probe.exe
-
-# Build rule for target.
-innerproduct_bool_probe.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 innerproduct_bool_probe.exe
-.PHONY : innerproduct_bool_probe.exe
-
-# fast build rule for target.
-innerproduct_bool_probe.exe/fast:
-	$(MAKE) -f innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build.make innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/build
-.PHONY : innerproduct_bool_probe.exe/fast
 
 #=============================================================================
 # Target rules for targets named self_dot_product.exe
@@ -261,10 +248,9 @@ help:
 	@echo "... install"
 	@echo "... aby"
 	@echo "... innerproduct_arith.exe"
-	@echo "... arith_innerproduct.exe"
-	@echo "... bool_innerproduct.exe"
+	@echo "... benchmark_arith_innerproduct.exe"
+	@echo "... benchmark_bool_innerproduct.exe"
 	@echo "... innerproduct_bool.exe"
-	@echo "... innerproduct_bool_probe.exe"
 	@echo "... self_dot_product.exe"
 .PHONY : help
 

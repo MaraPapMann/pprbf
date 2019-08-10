@@ -1,3 +1,6 @@
+#ifndef GENERATE_RANDOM_DATA_
+#define GENERATE_RANDOM_DATA_
+
 #include <random>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
@@ -20,6 +23,4 @@ public:
     uint16_t* array_b = get_random_data_array();
 };
 
-
-
-
+#endif

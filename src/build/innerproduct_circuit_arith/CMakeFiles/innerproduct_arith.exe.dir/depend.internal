@@ -11,7 +11,7 @@ innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/csv_writer.cpp.
  /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
  /usr/local/include/ENCRYPTO_utils/parse_options.h
  /usr/local/include/ENCRYPTO_utils/typedefs.h
-innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o
  /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/ABY_utils/ABYconstants.h
  /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/ABY_utils/convtypes.h
  /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/aby/abyparty.h
@@ -23,7 +23,7 @@ innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_ci
  /home/chen/Git_repositories/pprbf/src/ABY/src/abycore/sharing/sharing.h
  /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/csv_parser.h
  /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/csv_writer.h
- /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit.cpp
+ /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit_arith.cpp
  /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/long_array.h
  /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/read_test_options.h
  /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/self_dot_product_vector.h

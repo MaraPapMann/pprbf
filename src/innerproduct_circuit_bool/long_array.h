@@ -16,6 +16,9 @@
  *      6.  res_array_length: result array length.
  */
 
+#ifndef LONG_ARRAY_
+#define LONG_ARRAY_
+
 #include <vector>
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
@@ -57,6 +60,9 @@ private:
     // Get long array b.
     uint16_t* get_long_arr_b();
 
+    // Get segmentations' length vector.
+    vector<int> get_seg_len_vec();
+
 public:
     // Initiator.
     long_array(string path, e_role role):
@@ -81,5 +87,9 @@ public:
 
     // Result array length.
     int res_array_length = long_array_len / dim;
+
+    // Segmentations' length vector.
+    vector<int> seg_len_vec = long_array::get_seg_len_vec();
 };
 
+#endif

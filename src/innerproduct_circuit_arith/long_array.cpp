@@ -49,7 +49,7 @@ int long_array::get_one_seg_len(string file_a, string file_b)
 
 int long_array::get_long_array_len(){
     int long_arr_len = 0;
-    for(int i=0; i<file_vector.size(); i++){
+    for(int i=0; i<file_vector.size()-1; i++){
         string file_a = file_vector[i];
         for(int j=i+1; j<file_vector.size(); j++){
             string file_b = file_vector[j];

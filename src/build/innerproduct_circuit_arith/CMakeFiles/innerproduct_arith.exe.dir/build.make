@@ -83,18 +83,18 @@ innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/csv_parser.cpp.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_arith.exe.dir/csv_parser.cpp.s"
 	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/csv_parser.cpp -o CMakeFiles/innerproduct_arith.exe.dir/csv_parser.cpp.s
 
-innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/flags.make
-innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o: ../innerproduct_circuit_arith/innerproduct_circuit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit.cpp
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/flags.make
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o: ../innerproduct_circuit_arith/innerproduct_circuit_arith.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o"
+	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit_arith.cpp
 
-innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit.cpp > CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.i
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.i"
+	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit_arith.cpp > CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.i
 
-innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit.cpp -o CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.s
+innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.s"
+	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith/innerproduct_circuit_arith.cpp -o CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.s
 
 innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/read_test_options.cpp.o: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/flags.make
 innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/read_test_options.cpp.o: ../innerproduct_circuit_arith/read_test_options.cpp
@@ -139,7 +139,7 @@ innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/self_dot_produc
 innerproduct_arith_exe_OBJECTS = \
 "CMakeFiles/innerproduct_arith.exe.dir/long_array.cpp.o" \
 "CMakeFiles/innerproduct_arith.exe.dir/csv_parser.cpp.o" \
-"CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o" \
+"CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o" \
 "CMakeFiles/innerproduct_arith.exe.dir/read_test_options.cpp.o" \
 "CMakeFiles/innerproduct_arith.exe.dir/csv_writer.cpp.o" \
 "CMakeFiles/innerproduct_arith.exe.dir/self_dot_product_vector.cpp.o"
@@ -149,7 +149,7 @@ innerproduct_arith_exe_EXTERNAL_OBJECTS =
 
 bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/long_array.cpp.o
 bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/csv_parser.cpp.o
-bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit.cpp.o
+bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/innerproduct_circuit_arith.cpp.o
 bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/read_test_options.cpp.o
 bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/csv_writer.cpp.o
 bin/innerproduct_arith.exe: innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/self_dot_product_vector.cpp.o

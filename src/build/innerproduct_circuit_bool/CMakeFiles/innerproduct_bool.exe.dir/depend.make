@@ -24,6 +24,7 @@ innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circ
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: ../innerproduct_circuit_bool/innerproduct_circuit_bool.cpp
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: ../innerproduct_circuit_bool/long_array.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: ../innerproduct_circuit_bool/read_test_options.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: ../innerproduct_circuit_bool/self_dot_product_vector.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: /usr/local/include/ENCRYPTO_utils/cbitvector.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: /usr/local/include/ENCRYPTO_utils/constants.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
@@ -53,4 +54,15 @@ innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/parse_options.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/timer.h
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/typedefs.h
+
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../ABY/src/abycore/ABY_utils/ABYconstants.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../ABY/src/abycore/aby/abyparty.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../innerproduct_circuit_bool/csv_parser.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../innerproduct_circuit_bool/self_dot_product_vector.cpp
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../innerproduct_circuit_bool/self_dot_product_vector.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: /usr/local/include/ENCRYPTO_utils/constants.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: /usr/local/include/ENCRYPTO_utils/parse_options.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: /usr/local/include/ENCRYPTO_utils/timer.h
+innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: /usr/local/include/ENCRYPTO_utils/typedefs.h
 

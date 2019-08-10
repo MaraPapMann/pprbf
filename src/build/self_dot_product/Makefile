@@ -198,6 +198,33 @@ csv_parser.cpp.s:
 	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.s
 .PHONY : csv_parser.cpp.s
 
+read_test_options.o: read_test_options.cpp.o
+
+.PHONY : read_test_options.o
+
+# target to build an object file
+read_test_options.cpp.o:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o
+.PHONY : read_test_options.cpp.o
+
+read_test_options.i: read_test_options.cpp.i
+
+.PHONY : read_test_options.i
+
+# target to preprocess a source file
+read_test_options.cpp.i:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.i
+.PHONY : read_test_options.cpp.i
+
+read_test_options.s: read_test_options.cpp.s
+
+.PHONY : read_test_options.s
+
+# target to generate assembly for a file
+read_test_options.cpp.s:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.s
+.PHONY : read_test_options.cpp.s
+
 self_dot_product.o: self_dot_product.cpp.o
 
 .PHONY : self_dot_product.o
@@ -241,6 +268,9 @@ help:
 	@echo "... csv_parser.o"
 	@echo "... csv_parser.i"
 	@echo "... csv_parser.s"
+	@echo "... read_test_options.o"
+	@echo "... read_test_options.i"
+	@echo "... read_test_options.s"
 	@echo "... self_dot_product.o"
 	@echo "... self_dot_product.i"
 	@echo "... self_dot_product.s"

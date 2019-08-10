@@ -62,10 +62,9 @@ find_package(Boost 1.66.0 REQUIRED COMPONENTS thread system)
 
 add_subdirectory(ABY/src/abycore)
 add_subdirectory(innerproduct_circuit_arith)
-add_subdirectory(arith_innerproduct_test)
-add_subdirectory(bool_innerproduct_test)
+add_subdirectory(benchmark_arith_innerproduct)
+add_subdirectory(benchmark_bool_innerproduct)
 add_subdirectory(innerproduct_circuit_bool)
-add_subdirectory(innerproduct_circuit_bool_probe)
 add_subdirectory(self_dot_product)
 
 

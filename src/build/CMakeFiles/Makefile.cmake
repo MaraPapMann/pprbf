@@ -9,8 +9,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../ABY/src/abycore/CMakeLists.txt"
   "../CMakeLists.txt"
-  "../arith_innerproduct_test/CMakeLists.txt"
-  "../bool_innerproduct_test/CMakeLists.txt"
+  "../benchmark_arith_innerproduct/CMakeLists.txt"
+  "../benchmark_bool_innerproduct/CMakeLists.txt"
   "CMakeFiles/3.13.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.13.4/CMakeSystem.cmake"
   "../cmake/ABYConfig.cmake.in"
@@ -18,7 +18,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../cmake/FindGMPXX.cmake"
   "../innerproduct_circuit_arith/CMakeLists.txt"
   "../innerproduct_circuit_bool/CMakeLists.txt"
-  "../innerproduct_circuit_bool_probe/CMakeLists.txt"
   "../self_dot_product/CMakeLists.txt"
   "/usr/local/lib/cmake/ENCRYPTO_utils/ENCRYPTO_utilsConfig.cmake"
   "/usr/local/lib/cmake/ENCRYPTO_utils/ENCRYPTO_utilsTargets-release.cmake"
@@ -68,10 +67,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "ABY/src/abycore/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_arith/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "arith_innerproduct_test/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "bool_innerproduct_test/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "benchmark_arith_innerproduct/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "benchmark_bool_innerproduct/CMakeFiles/CMakeDirectoryInformation.cmake"
   "innerproduct_circuit_bool/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "innerproduct_circuit_bool_probe/CMakeFiles/CMakeDirectoryInformation.cmake"
   "self_dot_product/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -79,9 +77,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "ABY/src/abycore/CMakeFiles/aby.dir/DependInfo.cmake"
   "innerproduct_circuit_arith/CMakeFiles/innerproduct_arith.exe.dir/DependInfo.cmake"
-  "arith_innerproduct_test/CMakeFiles/arith_innerproduct.exe.dir/DependInfo.cmake"
-  "bool_innerproduct_test/CMakeFiles/bool_innerproduct.exe.dir/DependInfo.cmake"
+  "benchmark_arith_innerproduct/CMakeFiles/benchmark_arith_innerproduct.exe.dir/DependInfo.cmake"
+  "benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/DependInfo.cmake"
   "innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/DependInfo.cmake"
-  "innerproduct_circuit_bool_probe/CMakeFiles/innerproduct_bool_probe.exe.dir/DependInfo.cmake"
   "self_dot_product/CMakeFiles/self_dot_product.exe.dir/DependInfo.cmake"
   )

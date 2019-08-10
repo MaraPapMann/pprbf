@@ -4,11 +4,25 @@
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o: ../self_dot_product/csv_parser.cpp
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o: ../self_dot_product/csv_parser.h
 
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: ../ABY/src/abycore/ABY_utils/ABYconstants.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: ../ABY/src/abycore/aby/abyparty.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: ../self_dot_product/read_test_options.cpp
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: ../self_dot_product/read_test_options.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/constants.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/parse_options.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/timer.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: /usr/local/include/ENCRYPTO_utils/typedefs.h
+
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../ABY/src/abycore/ABY_utils/ABYconstants.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../ABY/src/abycore/aby/abyparty.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../self_dot_product/csv_parser.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../self_dot_product/read_test_options.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../self_dot_product/self_dot_product.cpp
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../self_dot_product/self_dot_product.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: /usr/local/include/ENCRYPTO_utils/constants.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: /usr/local/include/ENCRYPTO_utils/crypto/crypto.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: /usr/local/include/ENCRYPTO_utils/parse_options.h
+self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: /usr/local/include/ENCRYPTO_utils/timer.h
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: /usr/local/include/ENCRYPTO_utils/typedefs.h
 

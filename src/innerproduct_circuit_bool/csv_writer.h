@@ -11,6 +11,9 @@
  *      1. dp_mat: dot product matrix;
  *      2. write the dot product matrix into csv file.
  */
+#ifndef CSV_WRITER_
+#define CSV_WRITER_
+
 
 #include <iostream>
 #include <ENCRYPTO_utils/crypto/crypto.h>
@@ -106,4 +109,4 @@ public:
     void write_matrix_into_csv(string out_file);
 };
 
-
+#endif

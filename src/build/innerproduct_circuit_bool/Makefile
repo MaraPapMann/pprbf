@@ -306,6 +306,33 @@ read_test_options.cpp.s:
 	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.s
 .PHONY : read_test_options.cpp.s
 
+self_dot_product_vector.o: self_dot_product_vector.cpp.o
+
+.PHONY : self_dot_product_vector.o
+
+# target to build an object file
+self_dot_product_vector.cpp.o:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o
+.PHONY : self_dot_product_vector.cpp.o
+
+self_dot_product_vector.i: self_dot_product_vector.cpp.i
+
+.PHONY : self_dot_product_vector.i
+
+# target to preprocess a source file
+self_dot_product_vector.cpp.i:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.i
+.PHONY : self_dot_product_vector.cpp.i
+
+self_dot_product_vector.s: self_dot_product_vector.cpp.s
+
+.PHONY : self_dot_product_vector.s
+
+# target to generate assembly for a file
+self_dot_product_vector.cpp.s:
+	cd /home/chen/Git_repositories/pprbf/src/build && $(MAKE) -f innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.s
+.PHONY : self_dot_product_vector.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -334,6 +361,9 @@ help:
 	@echo "... read_test_options.o"
 	@echo "... read_test_options.i"
 	@echo "... read_test_options.s"
+	@echo "... self_dot_product_vector.o"
+	@echo "... self_dot_product_vector.i"
+	@echo "... self_dot_product_vector.s"
 .PHONY : help
 
 
