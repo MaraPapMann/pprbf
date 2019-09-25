@@ -1,4 +1,4 @@
-# Install script for directory: /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_arith
+# Install script for directory: /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_arith
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

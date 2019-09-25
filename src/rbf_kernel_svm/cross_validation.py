@@ -26,6 +26,7 @@ from linear_to_rbf_matrix import linear_to_rbf_matrix
 from sklearn.svm import SVC
 from sklearn.metrics import f1_score
 import numpy as np
+import timeit
 
 
 """
@@ -276,7 +277,7 @@ Pt4.    Use AUC or F1-score to estimate the performance.
 
 
 def estimation_f1_score(cv_pred_labels, cv_test_labels):
-    return f1_score(cv_test_labels, cv_pred_labels, average="micro")
+    return f1_score(cv_test_labels, cv_pred_labels)
 
 
 """
@@ -330,20 +331,25 @@ Final Capsulation End.
 
 if __name__ == '__main__':
     # Test
+    start = timeit.default_timer()
 
     # Initialization
-    train_labels_dir_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/label/"
+    train_labels_dir_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/label/"
     key = "split_label"
-    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
+    dp_mat_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
     fold_num = 5
     C_lst = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
     sigma_lst = [0.125, 0.25, 0.5, 1, 2, 4, 8]
     class_weight_lst = [
         {0: 1, 1: 1},
+        {0: 1, 1: 2},
         {0: 1, 1: 4},
-        {0: 1, 1: 5},
-        {0: 1, 1: 6},
-        {0: 1, 1: 10}]
+        {0: 1, 1: 8},
+        {0: 1, 1: 16}]
 
     # Run code
     cross_validation(train_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
+
+    end = timeit.default_timer()
+
+    print("Time: {:}".format(end - start))

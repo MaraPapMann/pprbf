@@ -46,7 +46,7 @@ add_library(ABY::aby STATIC IMPORTED)
 
 set_target_properties(ABY::aby PROPERTIES
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
-  INTERFACE_INCLUDE_DIRECTORIES "/home/chen/Git_repositories/pprbf/src/ABY/src/abycore/.."
+  INTERFACE_INCLUDE_DIRECTORIES "/home/mara-pap-mann/github/pprbf/src/ABY/src/abycore/.."
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:stdc++fs>;OTExtension::otextension;ENCRYPTO_utils::encrypto_utils;GMP::GMP;Threads::Threads"
 )
 
@@ -54,11 +54,27 @@ set_target_properties(ABY::aby PROPERTIES
 set_property(TARGET ABY::aby APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(ABY::aby PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "/home/chen/Git_repositories/pprbf/src/build/lib/libaby.a"
+  IMPORTED_LOCATION_RELEASE "/home/mara-pap-mann/github/pprbf/src/build/lib/libaby.a"
   )
 
-# This file does not depend on other imported targets which have
-# been exported from the same project but in a separate export set.
+# Make sure the targets which have been exported in some other 
+# export set exist.
+unset(${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets)
+foreach(_target "OTExtension::otextension" "ENCRYPTO_utils::encrypto_utils" )
+  if(NOT TARGET "${_target}" )
+    set(${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets "${${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets} ${_target}")
+  endif()
+endforeach()
+
+if(DEFINED ${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets)
+  if(CMAKE_FIND_PACKAGE_NAME)
+    set( ${CMAKE_FIND_PACKAGE_NAME}_FOUND FALSE)
+    set( ${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE "The following imported targets are referenced, but are missing: ${${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets}")
+  else()
+    message(FATAL_ERROR "The following imported targets are referenced, but are missing: ${${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets}")
+  endif()
+endif()
+unset(${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE_targets)
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

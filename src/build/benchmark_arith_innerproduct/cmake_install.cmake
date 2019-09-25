@@ -1,4 +1,4 @@
-# Install script for directory: /home/chen/Git_repositories/pprbf/src/benchmark_arith_innerproduct
+# Install script for directory: /home/mara-pap-mann/github/pprbf/src/benchmark_arith_innerproduct
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

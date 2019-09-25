@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chen/Git_repositories/pprbf/src
+CMAKE_SOURCE_DIR = /home/mara-pap-mann/github/pprbf/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chen/Git_repositories/pprbf/src/build
+CMAKE_BINARY_DIR = /home/mara-pap-mann/github/pprbf/src/build
 
 # Include any dependencies generated for this target.
 include self_dot_product/CMakeFiles/self_dot_product.exe.dir/depend.make
@@ -59,42 +59,42 @@ include self_dot_product/CMakeFiles/self_dot_product.exe.dir/flags.make
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o: self_dot_product/CMakeFiles/self_dot_product.exe.dir/flags.make
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o: ../self_dot_product/csv_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o -c /home/chen/Git_repositories/pprbf/src/self_dot_product/csv_parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.o -c /home/mara-pap-mann/github/pprbf/src/self_dot_product/csv_parser.cpp
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/self_dot_product/csv_parser.cpp > CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/self_dot_product/csv_parser.cpp > CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.i
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_dot_product/csv_parser.cpp -o CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/self_dot_product/csv_parser.cpp -o CMakeFiles/self_dot_product.exe.dir/csv_parser.cpp.s
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: self_dot_product/CMakeFiles/self_dot_product.exe.dir/flags.make
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o: ../self_dot_product/self_dot_product.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o -c /home/chen/Git_repositories/pprbf/src/self_dot_product/self_dot_product.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.o -c /home/mara-pap-mann/github/pprbf/src/self_dot_product/self_dot_product.cpp
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/self_dot_product/self_dot_product.cpp > CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/self_dot_product/self_dot_product.cpp > CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.i
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_dot_product/self_dot_product.cpp -o CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/self_dot_product/self_dot_product.cpp -o CMakeFiles/self_dot_product.exe.dir/self_dot_product.cpp.s
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: self_dot_product/CMakeFiles/self_dot_product.exe.dir/flags.make
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o: ../self_dot_product/read_test_options.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o -c /home/chen/Git_repositories/pprbf/src/self_dot_product/read_test_options.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o -c /home/mara-pap-mann/github/pprbf/src/self_dot_product/read_test_options.cpp
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/self_dot_product/read_test_options.cpp > CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/self_dot_product/read_test_options.cpp > CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.i
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/self_dot_product/read_test_options.cpp -o CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/self_dot_product/read_test_options.cpp -o CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.s
 
 # Object files for target self_dot_product.exe
 self_dot_product_exe_OBJECTS = \
@@ -110,21 +110,22 @@ bin/self_dot_product.exe: self_dot_product/CMakeFiles/self_dot_product.exe.dir/s
 bin/self_dot_product.exe: self_dot_product/CMakeFiles/self_dot_product.exe.dir/read_test_options.cpp.o
 bin/self_dot_product.exe: self_dot_product/CMakeFiles/self_dot_product.exe.dir/build.make
 bin/self_dot_product.exe: lib/libaby.a
-bin/self_dot_product.exe: /usr/local/lib/libencrypto_utils.a
-bin/self_dot_product.exe: /usr/local/lib/libotextension.a
-bin/self_dot_product.exe: /usr/local/lib/libencrypto_utils.a
-bin/self_dot_product.exe: /usr/local/lib/libmiracl.a
+bin/self_dot_product.exe: lib/libencrypto_utils.a
+bin/self_dot_product.exe: lib/libotextension.a
+bin/self_dot_product.exe: lib/libencrypto_utils.a
+bin/self_dot_product.exe: lib/libmiracl.a
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libboost_system.so
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-bin/self_dot_product.exe: /usr/local/lib/libgmpxx.so
+bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
+bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libgmpxx.so
 bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libcrypto.so
-bin/self_dot_product.exe: /usr/local/lib/libgmp.so
+bin/self_dot_product.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
 bin/self_dot_product.exe: self_dot_product/CMakeFiles/self_dot_product.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../bin/self_dot_product.exe"
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/self_dot_product.exe.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../bin/self_dot_product.exe"
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/self_dot_product.exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/build: bin/self_dot_product.exe
@@ -132,10 +133,10 @@ self_dot_product/CMakeFiles/self_dot_product.exe.dir/build: bin/self_dot_product
 .PHONY : self_dot_product/CMakeFiles/self_dot_product.exe.dir/build
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/clean:
-	cd /home/chen/Git_repositories/pprbf/src/build/self_dot_product && $(CMAKE_COMMAND) -P CMakeFiles/self_dot_product.exe.dir/cmake_clean.cmake
+	cd /home/mara-pap-mann/github/pprbf/src/build/self_dot_product && $(CMAKE_COMMAND) -P CMakeFiles/self_dot_product.exe.dir/cmake_clean.cmake
 .PHONY : self_dot_product/CMakeFiles/self_dot_product.exe.dir/clean
 
 self_dot_product/CMakeFiles/self_dot_product.exe.dir/depend:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chen/Git_repositories/pprbf/src /home/chen/Git_repositories/pprbf/src/self_dot_product /home/chen/Git_repositories/pprbf/src/build /home/chen/Git_repositories/pprbf/src/build/self_dot_product /home/chen/Git_repositories/pprbf/src/build/self_dot_product/CMakeFiles/self_dot_product.exe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mara-pap-mann/github/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mara-pap-mann/github/pprbf/src /home/mara-pap-mann/github/pprbf/src/self_dot_product /home/mara-pap-mann/github/pprbf/src/build /home/mara-pap-mann/github/pprbf/src/build/self_dot_product /home/mara-pap-mann/github/pprbf/src/build/self_dot_product/CMakeFiles/self_dot_product.exe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : self_dot_product/CMakeFiles/self_dot_product.exe.dir/depend
 
