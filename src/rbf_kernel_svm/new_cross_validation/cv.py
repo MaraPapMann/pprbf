@@ -291,6 +291,8 @@ Final Capsulation.
 
 def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst):
     labels = get_labels(test_labels_dir_path, key)
+    print("labels")
+    print(labels)
     section_lengths = get_section_lengths(test_labels_dir_path, key)
     cv_idx_list = generate_cv_index(section_lengths, fold_num)
     param_lst = []
@@ -324,7 +326,7 @@ def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, si
     file = open("./cv_report.txt", "w")
     for i in range(len(max_f1_score_index)):
         cur_idx = max_f1_score_index[i]
-        file.write("Top Average F1_score {:}: ".format(i) + str(avg_f1_score_lst[cur_idx]) + "\n")
+        file.write("Top Average F1_score {:}: ".format(10 - i) + str(avg_f1_score_lst[cur_idx]) + "\n")
         file.write("F1 Scores: ")
         for f1 in all_f1_score_lst[cur_idx]:
             file.write(str(f1))
@@ -353,9 +355,9 @@ if __name__ == '__main__':
     start = timeit.default_timer()
 
     # Initialization
-    train_labels_dir_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/label/"
-    key = "split_label"
-    dp_mat_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
+    train_labels_dir_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/new_cross_validation/reshuffled_data/"
+    key = "train_label"
+    dp_mat_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/new_cross_validation/reshuffled_data/reshuffled_train_data.csv"
     fold_num = 5
     C_lst = [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
     sigma_lst = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]
@@ -363,13 +365,8 @@ if __name__ == '__main__':
         {0: 1, 1: 1},
         {0: 1, 1: 2},
         {0: 1, 1: 4},
-<<<<<<< HEAD
-        {0: 1, 1: 8},
-        {0: 1, 1: 16}]
-=======
         {0: 1, 1: 5},
         {0: 1, 1: 8}]
->>>>>>> 15072019pprbf
 
     # Run code
     cross_validation(train_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)

@@ -52,6 +52,7 @@ if __name__ == '__main__':
 
 
     # Initialization
+<<<<<<< HEAD
     sigma = 4
     C = 1
     class_weight = {0: 1, 1: 4}
@@ -62,6 +63,18 @@ if __name__ == '__main__':
     test_labels_path = "./data/test/label/"
     test_labels_key = "split_label"
     merged_dp_mat_path = "./data/merged_data/merged_dp_mat.csv"
+=======
+    sigma = 3
+    C = 0.5
+    class_weight = {0: 1, 1: 5}
+    train_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_train_data.csv"
+    test_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_test_data.csv"
+    train_labels_path = "new_cross_validation/reshuffled_data/"
+    train_labels_key = "train_label"
+    test_labels_path = "new_cross_validation/reshuffled_data/"
+    test_labels_key = "test_label"
+    merged_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_dp_mat.csv"
+>>>>>>> 15072019pprbf
 
     # Get rbf kernel matrix
     # X_train = get_data(train_dp_mat_path, sigma)
