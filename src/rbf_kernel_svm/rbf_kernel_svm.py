@@ -18,12 +18,12 @@
     An optimal SVM model | Corresponding parameters.
 """
 
-
 from linear_to_rbf_matrix import linear_to_rbf_matrix
 from cross_validation import get_labels
 from cross_validation import estimation_f1_score
 from sklearn.svm import SVC
 import pandas as pd
+import timeit
 
 
 def get_data(dp_mat_path, sigma):
@@ -38,35 +38,42 @@ def get_prediction(X_train, Y_train, X_test, C, class_weight):
     return Y_pred
 
 
-def get_test_data(merged_dp_mat_path, train_dp_mat_path, sigma):
+def get_train_test_data(merged_dp_mat_path, train_dp_mat_path, sigma):
     org_kernel_matrix = get_data(merged_dp_mat_path, sigma)
     X_pre_train = pd.read_csv(train_dp_mat_path, header=None)
     length = X_pre_train.shape[0]
+    X_train = org_kernel_matrix[:length, :length]
     X_test = org_kernel_matrix[length:, :length]
-    return X_test
+    return X_train, X_test
 
 
 if __name__ == '__main__':
     # Test
 
-    # Initialization
-    sigma = 8
-    C = 10
-    class_weight = {0: 1, 1: 1}
-    train_dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
-    test_dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/test/test_data.csv"
-    train_labels_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/label/"
-    train_labels_key = "split_label"
-    test_labels_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/test/label/"
-    test_labels_key = "split_label"
-    merged_dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/merged_data/merged_dp_mat.csv"
 
+    # Initialization
+    sigma = 3
+    C = 0.5
+    class_weight = {0: 1, 1: 5}
+    train_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_train_data.csv"
+    test_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_test_data.csv"
+    train_labels_path = "new_cross_validation/reshuffled_data/"
+    train_labels_key = "train_label"
+    test_labels_path = "new_cross_validation/reshuffled_data/"
+    test_labels_key = "test_label"
+    merged_dp_mat_path = "new_cross_validation/reshuffled_data/reshuffled_dp_mat.csv"
 
     # Get rbf kernel matrix
-    X_train = get_data(train_dp_mat_path, sigma)
-    X_test = get_test_data(merged_dp_mat_path, train_dp_mat_path, sigma)
+    # X_train = get_data(train_dp_mat_path, sigma)
+    X_train, X_test = get_train_test_data(merged_dp_mat_path, train_dp_mat_path, sigma)
+
+    start = timeit.default_timer()
     Y_train = get_labels(train_labels_path, train_labels_key)
     Y_test = get_labels(test_labels_path, test_labels_key)
     Y_pred = get_prediction(X_train, Y_train, X_test, C, class_weight)
+
     F1_score = estimation_f1_score(Y_pred, Y_test)
     print("The F1-Score of the given svm classifier is {:}".format(F1_score))
+
+    end = timeit.default_timer()
+    print("Time: {:}".format(end - start))

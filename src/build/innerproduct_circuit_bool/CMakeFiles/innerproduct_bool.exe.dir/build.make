@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chen/Git_repositories/pprbf/src
+CMAKE_SOURCE_DIR = /home/mara-pap-mann/github/pprbf/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chen/Git_repositories/pprbf/src/build
+CMAKE_BINARY_DIR = /home/mara-pap-mann/github/pprbf/src/build
 
 # Include any dependencies generated for this target.
 include innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/depend.make
@@ -59,81 +59,81 @@ include innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.mak
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o: ../innerproduct_circuit_bool/long_array.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/long_array.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/long_array.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/long_array.cpp > CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/long_array.cpp > CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/long_array.cpp -o CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/long_array.cpp -o CMakeFiles/innerproduct_bool.exe.dir/long_array.cpp.s
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o: ../innerproduct_circuit_bool/csv_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp > CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp > CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp -o CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_parser.cpp -o CMakeFiles/innerproduct_bool.exe.dir/csv_parser.cpp.s
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o: ../innerproduct_circuit_bool/innerproduct_circuit_bool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp > CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp > CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp -o CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/innerproduct_circuit_bool.cpp -o CMakeFiles/innerproduct_bool.exe.dir/innerproduct_circuit_bool.cpp.s
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o: ../innerproduct_circuit_bool/read_test_options.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp > CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp > CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp -o CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/read_test_options.cpp -o CMakeFiles/innerproduct_bool.exe.dir/read_test_options.cpp.s
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o: ../innerproduct_circuit_bool/csv_writer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp > CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp > CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp -o CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/csv_writer.cpp -o CMakeFiles/innerproduct_bool.exe.dir/csv_writer.cpp.s
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/flags.make
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o: ../innerproduct_circuit_bool/self_dot_product_vector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o -c /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o -c /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp > CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp > CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.i
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp -o CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool/self_dot_product_vector.cpp -o CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.s
 
 # Object files for target innerproduct_bool.exe
 innerproduct_bool_exe_OBJECTS = \
@@ -155,21 +155,22 @@ bin/innerproduct_bool.exe: innerproduct_circuit_bool/CMakeFiles/innerproduct_boo
 bin/innerproduct_bool.exe: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/self_dot_product_vector.cpp.o
 bin/innerproduct_bool.exe: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build.make
 bin/innerproduct_bool.exe: lib/libaby.a
-bin/innerproduct_bool.exe: /usr/local/lib/libencrypto_utils.a
-bin/innerproduct_bool.exe: /usr/local/lib/libotextension.a
-bin/innerproduct_bool.exe: /usr/local/lib/libencrypto_utils.a
-bin/innerproduct_bool.exe: /usr/local/lib/libmiracl.a
+bin/innerproduct_bool.exe: lib/libencrypto_utils.a
+bin/innerproduct_bool.exe: lib/libotextension.a
+bin/innerproduct_bool.exe: lib/libencrypto_utils.a
+bin/innerproduct_bool.exe: lib/libmiracl.a
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libboost_system.so
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-bin/innerproduct_bool.exe: /usr/local/lib/libgmpxx.so
+bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
+bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libgmpxx.so
 bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libcrypto.so
-bin/innerproduct_bool.exe: /usr/local/lib/libgmp.so
+bin/innerproduct_bool.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
 bin/innerproduct_bool.exe: innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../bin/innerproduct_bool.exe"
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/innerproduct_bool.exe.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../bin/innerproduct_bool.exe"
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/innerproduct_bool.exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build: bin/innerproduct_bool.exe
@@ -177,10 +178,10 @@ innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build: bin/innerp
 .PHONY : innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/build
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/clean:
-	cd /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool && $(CMAKE_COMMAND) -P CMakeFiles/innerproduct_bool.exe.dir/cmake_clean.cmake
+	cd /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool && $(CMAKE_COMMAND) -P CMakeFiles/innerproduct_bool.exe.dir/cmake_clean.cmake
 .PHONY : innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/clean
 
 innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/depend:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chen/Git_repositories/pprbf/src /home/chen/Git_repositories/pprbf/src/innerproduct_circuit_bool /home/chen/Git_repositories/pprbf/src/build /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool /home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mara-pap-mann/github/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mara-pap-mann/github/pprbf/src /home/mara-pap-mann/github/pprbf/src/innerproduct_circuit_bool /home/mara-pap-mann/github/pprbf/src/build /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool /home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : innerproduct_circuit_bool/CMakeFiles/innerproduct_bool.exe.dir/depend
 

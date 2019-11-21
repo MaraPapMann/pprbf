@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG   -Wall -Wextra -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/chen/Git_repositories/pprbf/src/ABY/src/abycore/.. -isystem /usr/local/include -isystem /usr/local/lib 
+CXX_INCLUDES = -I/home/mara-pap-mann/github/pprbf/src/ABY/src/abycore/.. -I/home/mara-pap-mann/github/pprbf/src/ABY/extern/OTExtension -I/home/mara-pap-mann/github/pprbf/src/ABY/extern/ENCRYPTO_utils/src -isystem /usr/include/x86_64-linux-gnu 
 

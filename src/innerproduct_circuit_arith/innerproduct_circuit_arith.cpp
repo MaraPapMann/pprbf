@@ -274,8 +274,8 @@ int main(int argc, char** argv) {
 	std::string address = "127.0.0.1";
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
-	string dir = "/home/chen/Git_repositories/pprbf/src/data/probe/";
-	int seg_len_limit = 30000000;
+	string dir = "../data/probe/";
+	int seg_len_limit = 10000000;
 
 	// Parse command line.
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);

@@ -26,6 +26,7 @@ from linear_to_rbf_matrix import linear_to_rbf_matrix
 from sklearn.svm import SVC
 from sklearn.metrics import f1_score
 import numpy as np
+import timeit
 
 
 """
@@ -276,7 +277,7 @@ Pt4.    Use AUC or F1-score to estimate the performance.
 
 
 def estimation_f1_score(cv_pred_labels, cv_test_labels):
-    return f1_score(cv_test_labels, cv_pred_labels, average="micro")
+    return f1_score(cv_test_labels, cv_pred_labels)
 
 
 """
@@ -294,6 +295,8 @@ def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, si
     cv_idx_list = generate_cv_index(section_lengths, fold_num)
     param_lst = []
     avg_f1_score_lst = []
+    all_f1_score_lst = []
+    std_f1_score_lst = []
     for sigma in sigma_lst:
         kernel_mat = linear_to_rbf_matrix(dp_mat_path, sigma)
         for C in C_lst:
@@ -308,20 +311,37 @@ def cross_validation(test_labels_dir_path, key, dp_mat_path, fold_num, C_lst, si
                     cv_pred_labels = cv_svm(cv_train_data, cv_train_labels, cv_test_data, class_weight, C)
                     cv_f1_score = estimation_f1_score(cv_pred_labels, cv_test_labels)
                     avg_f1_score_under_this_param.append(cv_f1_score)
-                avg_f1_score_under_this_param = np.average(avg_f1_score_under_this_param)
-                avg_f1_score_lst.append(avg_f1_score_under_this_param)
+                std_f1_score_under_this_param = np.std(avg_f1_score_under_this_param)
+                std_f1_score_lst.append(std_f1_score_under_this_param)
+                all_f1_score_lst.append(avg_f1_score_under_this_param)
+                avg_f1_score_lst.append(np.average(avg_f1_score_under_this_param))
                 param_lst.append(cur_param)
-    max_f1_score_index = np.argmax(avg_f1_score_lst)
-    best_param = param_lst[max_f1_score_index]
-    cv_report = "The best parameters in this context are sigma = {:}, C = {:}, class_weight = {:} " \
-                 "with the corresponding F1-score {:}.".format(best_param[0], best_param[1], best_param[2],
-                                                        avg_f1_score_lst[max_f1_score_index])
-    print("Average F1-score list:")
-    print(avg_f1_score_lst)
-    print(cv_report)
+    max_f1_score_index = np.argsort(avg_f1_score_lst)[-10:]
+
+    # print("Average F1-score list:")
+    # print(avg_f1_score_lst)
+    # print(cv_report)
     file = open("./cv_report.txt", "w")
-    file.write(cv_report)
+    for i in range(len(max_f1_score_index)):
+        cur_idx = max_f1_score_index[i]
+        file.write("Top Average F1_score {:}: ".format(i) + str(avg_f1_score_lst[cur_idx]) + "\n")
+        file.write("F1 Scores: ")
+        for f1 in all_f1_score_lst[cur_idx]:
+            file.write(str(f1))
+            file.write(" ")
+        file.write("\n")
+        file.write("Std: ")
+        file.write(str(std_f1_score_lst[cur_idx]))
+        file.write("\n")
+        file.write("Parameters: ")
+        file.write("sigma: " + str(param_lst[cur_idx][0]) + " C: " + str(param_lst[cur_idx][1]) + " class weight: " + str(param_lst[cur_idx][2]))
+        file.write("\n")
+        file.write("\n")
     file.close()
+    #print("All F1 scores:")
+    #print(all_f1_score_lst)
+    #print("Std:")
+    #print(std_f1_score_lst)
 
 
 """
@@ -330,20 +350,25 @@ Final Capsulation End.
 
 if __name__ == '__main__':
     # Test
+    start = timeit.default_timer()
 
     # Initialization
-    train_labels_dir_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/label/"
+    train_labels_dir_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/label/"
     key = "split_label"
-    dp_mat_path = "/home/chen/Git_repositories/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
+    dp_mat_path = "/home/mara-pap-mann/github/pprbf/src/rbf_kernel_svm/data/train/train_data.csv"
     fold_num = 5
-    C_lst = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
-    sigma_lst = [0.125, 0.25, 0.5, 1, 2, 4, 8]
+    C_lst = [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+    sigma_lst = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]
     class_weight_lst = [
         {0: 1, 1: 1},
+        {0: 1, 1: 2},
         {0: 1, 1: 4},
         {0: 1, 1: 5},
-        {0: 1, 1: 6},
-        {0: 1, 1: 10}]
+        {0: 1, 1: 8}]
 
     # Run code
     cross_validation(train_labels_dir_path, key, dp_mat_path, fold_num, C_lst, sigma_lst, class_weight_lst)
+
+    end = timeit.default_timer()
+
+    print("Time: {:}".format(end - start))

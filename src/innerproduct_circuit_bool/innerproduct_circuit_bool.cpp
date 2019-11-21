@@ -299,8 +299,8 @@ int main(int argc, char** argv) {
 	std::string address = "127.0.0.1";
 	int32_t test_op = -1;
 	e_mt_gen_alg mt_alg = MT_OT;
-	string dir = "/home/chen/Git_repositories/pprbf/src/data/probe/";
-	int seg_len_limit = 100000000;
+	string dir = "../data/probe/";
+	int seg_len_limit = 10000000;
 
 	// Parse command line.
 	read_test_options(&argc, &argv, &role, &bitlen, &nvals, &secparam, &address, &port, &test_op, &dir);
@@ -330,7 +330,7 @@ int main(int argc, char** argv) {
 
 	// Integrate cross and self dot products into one final result array.
 	uint32_t *res_arr_final = integrate_cross_self_dp_arr(cross_dp_arr, self_dp_arr, two_long_arrays, self_dp_vec);
-	cout<<"Final result array got."<<endl; // Something wrong with the final array.
+	cout<<"Final result array integrated."<<endl; // Something wrong with the final array.
 
 	// Write the dot product matrix into csv file.
 	csv_writer *csv_to_write = new csv_writer(res_arr_final, two_long_arrays->res_array_length + self_dp_vec->self_dp_vec_len, two_long_arrays->row_nums);

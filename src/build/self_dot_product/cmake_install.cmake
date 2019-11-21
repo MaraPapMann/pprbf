@@ -1,4 +1,4 @@
-# Install script for directory: /home/chen/Git_repositories/pprbf/src/self_dot_product
+# Install script for directory: /home/mara-pap-mann/github/pprbf/src/self_dot_product
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

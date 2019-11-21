@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chen/Git_repositories/pprbf/src
+CMAKE_SOURCE_DIR = /home/mara-pap-mann/github/pprbf/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chen/Git_repositories/pprbf/src/build
+CMAKE_BINARY_DIR = /home/mara-pap-mann/github/pprbf/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Git_repositories/pprbf/src/build/CMakeFiles /home/chen/Git_repositories/pprbf/src/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mara-pap-mann/github/pprbf/src/build/CMakeFiles /home/mara-pap-mann/github/pprbf/src/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Git_repositories/pprbf/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mara-pap-mann/github/pprbf/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -155,6 +155,45 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named miracl
+
+# Build rule for target.
+miracl: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 miracl
+.PHONY : miracl
+
+# fast build rule for target.
+miracl/fast:
+	$(MAKE) -f ABY/extern/ENCRYPTO_utils/extern/MIRACL/CMakeFiles/miracl.dir/build.make ABY/extern/ENCRYPTO_utils/extern/MIRACL/CMakeFiles/miracl.dir/build
+.PHONY : miracl/fast
+
+#=============================================================================
+# Target rules for targets named encrypto_utils
+
+# Build rule for target.
+encrypto_utils: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 encrypto_utils
+.PHONY : encrypto_utils
+
+# fast build rule for target.
+encrypto_utils/fast:
+	$(MAKE) -f ABY/extern/ENCRYPTO_utils/src/CMakeFiles/encrypto_utils.dir/build.make ABY/extern/ENCRYPTO_utils/src/CMakeFiles/encrypto_utils.dir/build
+.PHONY : encrypto_utils/fast
+
+#=============================================================================
+# Target rules for targets named otextension
+
+# Build rule for target.
+otextension: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 otextension
+.PHONY : otextension
+
+# fast build rule for target.
+otextension/fast:
+	$(MAKE) -f ABY/extern/OTExtension/CMakeFiles/otextension.dir/build.make ABY/extern/OTExtension/CMakeFiles/otextension.dir/build
+.PHONY : otextension/fast
 
 #=============================================================================
 # Target rules for targets named aby
@@ -246,6 +285,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... list_install_components"
 	@echo "... install"
+	@echo "... miracl"
+	@echo "... encrypto_utils"
+	@echo "... otextension"
 	@echo "... aby"
 	@echo "... innerproduct_arith.exe"
 	@echo "... benchmark_arith_innerproduct.exe"

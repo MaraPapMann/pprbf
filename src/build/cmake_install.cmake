@@ -1,4 +1,4 @@
-# Install script for directory: /home/chen/Git_repositories/pprbf/src
+# Install script for directory: /home/mara-pap-mann/github/pprbf/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,14 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/chen/Git_repositories/pprbf/src/build/ABY/src/abycore/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_arith/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/benchmark_arith_innerproduct/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/innerproduct_circuit_bool/cmake_install.cmake")
-  include("/home/chen/Git_repositories/pprbf/src/build/self_dot_product/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/ABY/extern/ENCRYPTO_utils/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/ABY/extern/OTExtension/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/ABY/src/abycore/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_arith/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/benchmark_arith_innerproduct/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/innerproduct_circuit_bool/cmake_install.cmake")
+  include("/home/mara-pap-mann/github/pprbf/src/build/self_dot_product/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/chen/Git_repositories/pprbf/src/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mara-pap-mann/github/pprbf/src/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

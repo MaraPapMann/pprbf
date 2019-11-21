@@ -3,7 +3,7 @@
 
 #include <ENCRYPTO_utils/crypto/crypto.h>
 #include <ENCRYPTO_utils/parse_options.h>
-#include "/home/chen/Git_repositories/pprbf/src/ABY/src/abycore/aby/abyparty.h"
+#include "../ABY/src/abycore/aby/abyparty.h"
 #include <string>
 #include <iostream>
 #include <cassert>

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chen/Git_repositories/pprbf/src
+CMAKE_SOURCE_DIR = /home/mara-pap-mann/github/pprbf/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chen/Git_repositories/pprbf/src/build
+CMAKE_BINARY_DIR = /home/mara-pap-mann/github/pprbf/src/build
 
 # Include any dependencies generated for this target.
 include benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/depend.make
@@ -59,29 +59,29 @@ include benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.d
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o: benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/flags.make
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o: ../benchmark_bool_innerproduct/innerproduct_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o -c /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.o -c /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp > CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp > CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.i
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/innerproduct_test.cpp -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/innerproduct_test.cpp.s
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o: benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/flags.make
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o: ../benchmark_bool_innerproduct/common/innerproduct.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o -c /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o"
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o -c /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.i"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp > CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.i
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp > CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.i
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.s"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.s
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct/common/innerproduct.cpp -o CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.s
 
 # Object files for target benchmark_bool_innerproduct.exe
 benchmark_bool_innerproduct_exe_OBJECTS = \
@@ -95,21 +95,22 @@ bin/benchmark_bool_innerproduct.exe: benchmark_bool_innerproduct/CMakeFiles/benc
 bin/benchmark_bool_innerproduct.exe: benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/common/innerproduct.cpp.o
 bin/benchmark_bool_innerproduct.exe: benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build.make
 bin/benchmark_bool_innerproduct.exe: lib/libaby.a
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libencrypto_utils.a
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libotextension.a
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libencrypto_utils.a
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libmiracl.a
+bin/benchmark_bool_innerproduct.exe: lib/libencrypto_utils.a
+bin/benchmark_bool_innerproduct.exe: lib/libotextension.a
+bin/benchmark_bool_innerproduct.exe: lib/libencrypto_utils.a
+bin/benchmark_bool_innerproduct.exe: lib/libmiracl.a
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libboost_system.so
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libgmpxx.so
+bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
+bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libgmpxx.so
 bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libcrypto.so
-bin/benchmark_bool_innerproduct.exe: /usr/local/lib/libgmp.so
+bin/benchmark_bool_innerproduct.exe: /usr/lib/x86_64-linux-gnu/libgmp.so
 bin/benchmark_bool_innerproduct.exe: benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chen/Git_repositories/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/benchmark_bool_innerproduct.exe"
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark_bool_innerproduct.exe.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mara-pap-mann/github/pprbf/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/benchmark_bool_innerproduct.exe"
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark_bool_innerproduct.exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build: bin/benchmark_bool_innerproduct.exe
@@ -117,10 +118,10 @@ benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build
 .PHONY : benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/build
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/clean:
-	cd /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct && $(CMAKE_COMMAND) -P CMakeFiles/benchmark_bool_innerproduct.exe.dir/cmake_clean.cmake
+	cd /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct && $(CMAKE_COMMAND) -P CMakeFiles/benchmark_bool_innerproduct.exe.dir/cmake_clean.cmake
 .PHONY : benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/clean
 
 benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/depend:
-	cd /home/chen/Git_repositories/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chen/Git_repositories/pprbf/src /home/chen/Git_repositories/pprbf/src/benchmark_bool_innerproduct /home/chen/Git_repositories/pprbf/src/build /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct /home/chen/Git_repositories/pprbf/src/build/benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mara-pap-mann/github/pprbf/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mara-pap-mann/github/pprbf/src /home/mara-pap-mann/github/pprbf/src/benchmark_bool_innerproduct /home/mara-pap-mann/github/pprbf/src/build /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct /home/mara-pap-mann/github/pprbf/src/build/benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : benchmark_bool_innerproduct/CMakeFiles/benchmark_bool_innerproduct.exe.dir/depend
 
